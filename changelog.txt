@@ -1,0 +1,4 @@
+09/08/23
+#Nombre de la base de datos
+Se recomienda tener la base de datos con la denominacion "agrocommercedb",
+ya que todos los archivos de conexion de PHP lo hacen con ese nombre.
