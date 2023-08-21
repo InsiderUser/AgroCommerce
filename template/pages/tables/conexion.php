@@ -1,9 +1,9 @@
 <?php
     $host = "localhost";
-    $port = "5432";
+    $port = "5050";
     $user = "postgres";
     $pass = "postgres";
-    $dbname = "datasets";
+    $dbname = "agrocommercedb";
 
     $conectado = pg_connect("host=$host port=$port user=$user password=$pass dbname=$dbname");
 
