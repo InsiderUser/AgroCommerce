@@ -9,6 +9,6 @@
 
     if (!$conectado) {
         echo "Error de conexión.";
-        exit;
+        exit();
     }
 ?>
