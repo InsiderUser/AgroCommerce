@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$port = '5050'; // Cambia esto al número de puerto correcto
+$port = '5432'; //Alternar los puertos para que se pueda conectar (5432 o 5050)
 $dbname = 'agrocommercedb';
 $user = 'postgres';
 $pass = 'postgres';
