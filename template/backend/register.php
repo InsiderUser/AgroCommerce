@@ -18,7 +18,7 @@
     $data = pg_fetch_assoc($data);
 
     if($data && $data['usuario']===$newUser){        
-        header('Location: http://localhost/Agrocommerce/template/pages/samples/register.html');
+        header('Location: http://localhost/Agrocommerce/template/pages/samples/register.php');
         exit();
         ## BUG
         ## Cuando se encuentra un usuario similar, se deberia mostrar un modal que indique las coincidencias
