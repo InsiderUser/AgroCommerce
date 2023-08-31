@@ -23,7 +23,8 @@
         ## BUG
         ## Cuando se encuentra un usuario similar, se deberia mostrar un modal que indique las coincidencias
     }else{
-        $pg = pg_query($conectado,"INSERT INTO clientes (usuario,clave,correo,provincia,tipo_cultivo,intervalo,hectarea,fecha) VALUES ('$newUser','$newPassword','$newMail','$newProvince','$newSeed','$newInterval','$newHectare','$newDate')");
+        $pg = pg_query($conectado,"INSERT INTO clientes (usuario,clave,correo) VALUES ('$newUser','$newPassword','$newMail')");
+        $pd = pg_query($conectado, "INSERT INTO cultivos_clientes (provincia,tipo_cultivo,intervalo,hectarea,fecha) VALUES ('$newProvince','$newSeed','$newInterval','$newHectare','$newDate')");
         header('Location: http://localhost/agrocommerce/template/');
         exit();
 
