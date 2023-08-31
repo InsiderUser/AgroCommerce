@@ -1,0 +1,29 @@
+.main-container {
+    font-family: $primary-font;
+}
+
+.sidebar {
+    background-color: #fff;
+    min-width: 250px;
+    font-family: $primary-font;
+
+    .nav-profile-image {
+        img {
+            width: 44px;
+            height: 44px;
+            border-radius: 100%;
+        }
+    }
+
+    a.nav-link {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+}
+
+.main-panel {
+    background-color: $pastel-color;
+    min-height: 100vh;
+    width: 100%;
+}
