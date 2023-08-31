@@ -1,0 +1,87 @@
+.form-login,
+.form-recovery,
+.form-register {
+    background-color: $pastel-color;
+    font-family: $primary-font;
+
+    & > .row {
+        height: 100%;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4rem;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 0;
+            padding: 0 20px;
+        }
+        
+    }
+}
+
+.form-body {
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    margin: 0 auto;
+
+    h5 {
+        font-family: $secondary-font;
+        font-size: 1.75rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+.brand {
+    &-logo {
+        height: 100%;
+
+        img {
+            max-width: 80px;
+        }
+    }
+
+    &-text {
+        font-size: 26px;
+        font-weight: 600;
+        color: $green-400;
+        margin: 0 0 0 20px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &-logo {
+            &::after {
+                content: '';
+                position: relative;
+                border: 1px solid $green-400;
+                height: 400px;
+                top: 50%;
+                left: 15%;
+            }
+    
+            img {
+                max-width: 120px;
+            }
+        }
+
+        &-text { font-size: 36px; }
+    }
+}
+
+img.img-logo {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: #fff;
+    --bs-tooltip-color: #000;
+    font-family: $primary-font;
+}
