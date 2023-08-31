@@ -2,3 +2,11 @@
 #Nombre de la base de datos
 Se recomienda tener la base de datos con la denominacion "agrocommercedb",
 ya que todos los archivos de conexion de PHP lo hacen con ese nombre.
+
+---------------------------------------------------------------
+
+PRIMEROS PASOS: 
+1. Instalar node -> https://nodejs.org/es 
+2. Ejecutar el comando: "npm install". 
+   Esto intalará las dependencias de bootstrap y sass necesarias.
+3. Para compilar sass ejecutar el comando: "npm run compile:sass"
