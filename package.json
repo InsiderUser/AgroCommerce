@@ -1,0 +1,25 @@
+{
+  "name": "agrocommerce",
+  "version": "1.0.0",
+  "description": "Repositorio dedicado al proyecto AgroCommerce para la cátedra de Ingeniería de Software.",
+  "main": "index.js",
+  "devDependencies": {
+    "sass": "^1.66.1"
+  },
+  "scripts": {
+    "compile:sass": "sass --watch src/assets/scss:src/assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InsiderUser/AgroCommerce.git"
+  },
+  "author": "Baurer, Boix, Romanazzi, Ruiz",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/InsiderUser/AgroCommerce/issues"
+  },
+  "homepage": "https://github.com/InsiderUser/AgroCommerce#readme"
+}
