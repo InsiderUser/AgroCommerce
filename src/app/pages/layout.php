@@ -9,10 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/custom.css">
-    
+    <link rel="stylesheet" href="clima.css">
     <link rel="shortcut icon" href="../../assets/images/Logo.ico" />
   </head>
-  <body>
+  <body onload=consulta()>
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
@@ -109,6 +109,13 @@
         </ul>
       </div>
       <div class="main-panel p-5">
+        <div class="clima">
+          <div id="titulo"></div>
+          <div id="lugar"></div>
+          <div id="temp"></div>
+          <div id="descripcion"></div>
+          <img id="icono" src="" alt="">
+        </div>
         <div class="page-header">
           <h4 class="page-title pb-4">Informacion Basica de Cultivos</h4>
           <!-- <nav aria-label="breadcrumb">
@@ -122,13 +129,14 @@
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <form action="../../backend/crops-table.php" method="post"><br>
+                
+              <form action="" method="post"><br>
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group mt-2">
                           <label for="cultivo">Seleccione el cultivo:</label>
                           <select class="form-select" name="cultivo">
-                            <option value="null" selected></option>
+                            <option value="0" selected></option>
                             <option value="centeno">Centeno</option>
                             <option value="girasol">Girasol</option>
                             <option value="mijo">Mijo</option>
@@ -140,17 +148,109 @@
                   <div class="row">
                     <div class="col-md-4">
                       <label for="provincia">Ingrese la provincia:</label>
-                      <input class="form-control" type="text" name="provincia">
+                      <select class="form-select" name="provincia" id="selectProvince" required>
+                            <option selected disabled>Selecciones su provincia</option>
+                            <option value="Buenos Aires">BUENOS AIRES</option>
+                            <option value="Catamarca">CATAMARCA</option>
+                            <option value="Chaco">CHACO</option>
+                            <option value="Chubut">CHUBUT</option>
+                            <option value="Cordoba">CORDOBA</option>
+                            <option value="Corrientes">CORRIENTES</option>
+                            <option value="Entre Rios">ENTRE RIOS</option>
+                            <option value="Formosa">FORMOSA</option>
+                            <option value="Jujuy">JUJUY</option>
+                            <option value="La Pampa">LA PAMPA</option>
+                            <option value="La Rioja">LA RIOJA</option>
+                            <option value="Mendoza">MENDOZA</option>
+                            <option value="Misiones">MISIONES</option>
+                            <option value="Neuquen">NEUQUEN</option>
+                            <option value="Rio Negro">RIO NEGRO</option>
+                            <option value="Salta">SALTA</option>
+                            <option value="San Luis">SAN LUIS</option>
+                            <option value="Santa Cruz">SANTA CRUZ</option>
+                            <option value="Santa Fe">SANTA FE</option>
+                            <option value="Santiago Del Estero">SANTIAGO DEL ESTERO</option>
+                            <option value="Tierra del Fuego">TIERRA DEL FUEGO</option>
+                            <option value="Tucuman">TUCUMAN</option>
+                        </select>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4">
                       <label for="cultivo">Ingrese el año:</label>
-                      <input class="form-control" type="number" name="anio">
+                      <input class="form-control" type="number" name="anio" value="0">
                     </div>
                   </div>
                   <button class="btn btn-primary px-4 mt-4" type="submit">Enviar</button>
                 </form>
+                <?php
+                      
+                      include "../../backend/conection.php";
+
+                      if (isset($_REQUEST['cultivo']) && isset($_REQUEST['anio']) && isset($_REQUEST['provincia'])) {
+                        $opcion = $_REQUEST['cultivo'];
+                        $anio = $_REQUEST['anio'];
+                        $provincia = $_REQUEST['provincia'];
+
+                      
+                      
+                      if($opcion=='0' and $anio=='0' and $provincia='0'){
+                        echo "Selecciona un cultivo";
+                      }
+                      else{
+                        $query = "SELECT * from cultivos where cultivo_nombre = '$opcion' and anio='$anio' and provincia_nombre= '$provincia'";
+        
+                        $result = pg_query($conectado, $query);
+                        if (!$result) {
+                          echo "Error en la consulta.";
+                            exit;
+                        }
+
+                          echo "<br><h4>Cultivo: $opcion</h4>";
+                          echo "<h4>Provincia: $provincia</h4>";
+                          echo "<h4>Año: $anio</h4><br>";
+                          
+                          $sumaTotal1 = 0;
+                          $sumaTotal2 = 0;
+                          $sumaTotal3 = 0;
+                          $sumaTotal4 = 0;
+                          
+                          $contador = 0;
+                          
+                          while ($row = pg_fetch_assoc($result)) {
+                            // Obtener el valor de la columna y sumarlo
+                            $valorColumna_Superficie_Sembrada = (int)$row['superficie_sembrada_ha'];
+                            $valorColumna_Superficie_Cosechada = (int)$row['superficie_cosechada_ha'];
+                            $valorColumna_Produccion_Tonelada_Metro = (int)$row['produccion_tm'];
+                            $valorColumna_Rendimiento_Economico_kg_metro = (int)$row['rendimiento_kgxha'];
+                            
+                            
+                            $sumaTotal1 += $valorColumna_Superficie_Sembrada;
+                            $sumaTotal2 += $valorColumna_Superficie_Cosechada;
+                            $sumaTotal3 += $valorColumna_Produccion_Tonelada_Metro;
+                            $sumaTotal4 += $valorColumna_Rendimiento_Economico_kg_metro;
+                            $contador++;
+                            
+                          } 
+
+                          if($sumaTotal1 == 0 & $sumaTotal2 == 0 & $sumaTotal1 == 0 & $sumaTotal2 == 0){
+                            echo "NO SE HAN ENCONTRADO RESULTADOS PARA SU CONSULTA";
+                          }
+                          else{
+                            $valor1 = number_format(($sumaTotal1/($contador-1)), 2);
+                            $valor2 = number_format(($sumaTotal2/($contador-1)), 2);
+  
+                            echo "<div class='muestra'>";
+                              echo "<div class='single'>Promedio de Superficie Sembrada por Hectarea: " .$valor1."</div>";
+                              echo "<div class='single'>Promedio de Superficie Cosechada por Hectarea: " .$valor2."</div>";
+                              echo "<div class='single'>Promedio de Produccion Tonelada/metro: " .number_format(($sumaTotal3/($contador-1)), 2)."</div>";
+                              echo "<div class='single'>Promedio de Rendimiento Economico kg/m: " .number_format(($sumaTotal4/($contador-1)), 2)."</div>";
+                            echo "</div>";              
+                          }
+                        }
+                          pg_close($conectado);
+                        }
+                    ?>
               </div>
             </div>
           </div>
@@ -252,7 +352,7 @@
         </li>
       </ul>
     </nav> -->
-    
+    <script src="./api.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
