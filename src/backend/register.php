@@ -15,7 +15,7 @@
     $newDate = $_POST['seedtime'];
 
     $data = pg_query($conectado,"SELECT usuario,clave FROM clientes WHERE usuario='$newUser'");
-    $data = pg_fetch_assoc($data);
+    $data = pg_fetch_assoc($data); 
 
     if($data && $data['usuario']===$newUser){        
         header('Location: http://localhost/agrocommerce/src/app/pages/account/register.html');
@@ -23,7 +23,8 @@
         ## BUG
         ## Cuando se encuentra un usuario similar, se deberia mostrar un modal que indique las coincidencias
     }else{
-        $pg = pg_query($conectado,"INSERT INTO clientes (usuario,clave,correo,provincia,tipo_cultivo,intervalo,hectarea,fecha) VALUES ('$newUser','$newPassword','$newMail','$newProvince','$newSeed','$newInterval','$newHectare','$newDate')");
+        $pg = pg_query($conectado,"INSERT INTO clientes (usuario,clave,correo) VALUES ('$newUser','$newPassword','$newMail')");
+        $pd = pg_query($conectado, "INSERT INTO cultivos_clientes (provincia,tipo_cultivo,intervalo,hectarea,fecha) VALUES ('$newProvince','$newSeed','$newInterval','$newHectare','$newDate')");
         header('Location: http://localhost/agrocommerce/src/app/pages/layout.html');
         exit();
 
