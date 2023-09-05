@@ -1,3 +1,7 @@
+<?php
+session_start();
+$userId = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -436,93 +440,13 @@
               <div class="collapse" id="cultivos-personales">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/blank-page.html">
-                      Cultivo #1
-                    </a>
-                    <a href="../template/pages/samples/farming-register.php"
-                      ><button
-                        class="btn btn-block btn-lg btn-gradient-primary mt-4"
-                      >
-                        + Anadir un cultivo
-                      </button>
-                    </a>
+                  
+                  <?php
+                    include "../template/backend/validateSession.php";
+                  ?>
+                    
                   </li>
                 </ul>
-              </div>
-              <div id="modal" class="modal">
-                <div class="modal-content">
-                  <span class="close" id="closeModalBtn">&times;</span>
-                  <h2>DATOS BANCARIOS</h2>
-                  <form
-                    class="pt-3"
-                    method="post"
-                    action="../../backend/register.php"
-                  >
-                    <!-- Provincia -->
-                    <div class="form-group">
-                      <select
-                        class="form-control form-control-lg"
-                        name="province"
-                        required
-                        id="exampleFormControlSelect2"
-                      >
-                        <option selected disabled>
-                          En que provincia se ubicará?
-                        </option>
-                      </select>
-                    </div>
-                    <!-- Cultivo -->
-                    <div class="form-group">
-                      <select
-                        name="seed"
-                        required
-                        class="form-control form-control-lg"
-                        id="exampleFormControlSelect2"
-                      >
-                        <option selected disabled>Que cultivo sembrará?</option>
-                      </select>
-                    </div>
-                    <!-- Intervalo de riego -->
-                    <div class="form-group">
-                      <input
-                        required
-                        type="number"
-                        name="interval"
-                        class="form-control form-control-lg"
-                        id="exampleInputUsername1"
-                        placeholder="Intervalo de riego"
-                      />
-                      <!-- Podriamos agg una i con info del tema tipo modal -->
-                    </div>
-                    <!-- Numero de hectareas -->
-                    <div class="form-group">
-                      <input
-                        required
-                        type="number"
-                        name="hectare"
-                        class="form-control form-control-lg"
-                        id="exampleInputUsername1"
-                        placeholder="Hectareas cultivadas"
-                      />
-                    </div>
-                    <!-- Fecha de siembra -->
-                    <div class="form-group">
-                      <input
-                        required
-                        type="date"
-                        name="seedtime"
-                        class="form-control form-control-lg"
-                        id="exampleInputUsername1"
-                        placeholder="Fecha de siembra"
-                      />
-                    </div>
-
-                    <input
-                      class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
-                      type="submit"
-                    />
-                  </form>
-                </div>
               </div>
             </li>
 

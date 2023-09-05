@@ -10,7 +10,7 @@ $id = $mail_db['id'];
 
 if($passEntry === $passEntry2){
     $pg = pg_query($conectado,"UPDATE clientes SET clave = '$passEntry' WHERE id = '$id'");
-    header('Location: http://localhost/agrocommerce/template/index.html'); 
+    header('Location: http://localhost/agrocommerce/template/index.php'); 
     session_abort();
     exit();
 }else{

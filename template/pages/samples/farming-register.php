@@ -38,6 +38,7 @@
                 <div class="brand-logo">
                   <img src="../../assets/images/logo.svg" />
                 </div>
+
                 <form
                   class="pt-3"
                   method="post"
@@ -132,7 +133,7 @@
 
                   <input
                     class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
-                    type="submit" value="Agregar cultivo"
+                    type="submit"
                   />
                 </form>
               </div>
