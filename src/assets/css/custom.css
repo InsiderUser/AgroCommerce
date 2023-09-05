@@ -11881,6 +11881,8 @@ textarea.form-control-lg {
   background-color: #f9fae9;
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .form-login,
@@ -11963,6 +11965,37 @@ img.img-logo {
   --bs-tooltip-bg: #fff;
   --bs-tooltip-color: #000;
   font-family: "Montserrat", sans-serif;
+}
+
+.clima {
+  border: 1px solid gray;
+  padding: 1rem;
+  height: 20rem;
+  width: 15rem;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #78c892;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#titulo {
+  font-size: 2.5rem;
+}
+
+#lugar {
+  font-size: 1.2rem;
+}
+
+#temp {
+  font-size: 3.5rem;
+}
+
+#descripcion {
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=custom.css.map */
