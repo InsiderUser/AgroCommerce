@@ -16,11 +16,11 @@
     $input = pg_fetch_assoc($input);
     
     if($input && $input['usuario']==$username && $input['clave']==$password && $flag == false){
-        header('Location: http://localhost/agrocommerce/src/app/pages/layout.html');
+        header('Location: http://localhost/agrocommerce/src/app/pages/layout.php');
         
         exit();
     }elseif($input && $input['correo']==$username && $input['clave']==$password && $flag == true){
-        header('Location: http://localhost/agrocommerce/src/app/pages/layout.html');
+        header('Location: http://localhost/agrocommerce/src/app/pages/layout.php');
         exit();
     }else{
         $error = true;

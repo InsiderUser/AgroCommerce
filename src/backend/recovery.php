@@ -9,7 +9,7 @@ $mail_db = pg_fetch_assoc($mail_db);
 if($mail_db && $mail_db['correo'] == $dataUser){
     $_SESSION['mail_db'] = $mail_db; // Almacena el arreglo asociativo en la sesión
     $id = $mail_db['id']; // Obtén el valor del campo 'id'
-    header('Location: http://localhost/agrocommerce/src/app/pages/layout.html');
+    header('Location: http://localhost/agrocommerce/src/app/pages/account/change-password.html');
     exit();
 }else{
     header('Location: http://localhost/agrocommerce/src/app/pages/account/recovery.html');

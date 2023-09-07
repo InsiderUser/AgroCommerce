@@ -16,7 +16,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
-        <a class="navbar-brand mx-1" href="./layout.html">
+        <a class="navbar-brand mx-1" href="./layout.php">
           <img src="../../assets/images/Logo-02.svg" alt="Logo" width="30" height="26" class="d-inline-block align-text-top">
           <span class="navbar-brand-text">AGROCOMMERCE</span>
         </a>
@@ -76,13 +76,12 @@
                 <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column text-start">
-                <span class="font-weight-bold">David Moreno</span>
-                <span class="text-secondary text-small">Agricultor</span>
+                <span class="font-weight-bold text-secondary">David Moreno</span>
               </div>
             </a>
           </li>
           <li class="nav-item mt-3">
-            <a class="nav-link" href="./layout.html">
+            <a class="nav-link" href="./layout.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                 <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
               </svg>
@@ -90,15 +89,23 @@
             </a>
           </li>
           <li class="nav-item mt-3">
-            <a class="nav-link" href="./crops.html">
+            <a class="nav-link" href="./crops.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid" viewBox="0 0 16 16">
                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
               </svg>
-              <span class="menu-title">Cultivos</span>
+              <span class="menu-title">Más sobre Cultivos</span>
             </a>
           </li>
           <li class="nav-item mt-3">
-            <a class="nav-link" href="./support.html">
+            <a class="nav-link" href="./pests-insecticides.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
+              <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
+            </svg>
+              <span class="menu-title">Plagas e insecticidas</span>
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link" href="./support.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
@@ -161,20 +168,60 @@
                     <div class="col-md-6 p-4">
                         <!--Formulario de mensaje-->
                         <h6>Enviar una consulta</h6>
-                        <form action="../../backend/support.php" method="post">
+                        <form action="" method="post">
                             <div class="form-group">
-                                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre">
+                                <input type="text" name="nombre" class="form-control" id="name" placeholder="Nombre">
                             </div>
                             <div class="form-group mt-3">
                                 <input name="email" type="email" class="form-control" id="email" placeholder="Email">
                             </div>
                             <div class="form-group mt-3">
-                                <textarea name="mensaje" id="mensaje" cols="30" rows="5" class="form-control" placeholder="Ingresar texto..."></textarea>
+                                <textarea name="mensaje" id="message" cols="30" rows="5" class="form-control" placeholder="Ingresar texto..."></textarea>
                             </div>
                             <div class="mt-5 text-end">
-                                <button type="submit" value="Enviar" class="btn btn-primary px-5">Enviar</button>
+                                <button type="submit" class="btn btn-primary px-5" style="font-weight: 500;">Enviar</button>
                             </div>
                         </form>
+
+                        <?php
+                          $host = "localhost";
+                          $port = "5432";
+                          $user = "postgres";
+                          $pass = "postgres";
+                          $dbname = "agrocommercedb";
+
+                          try {
+                            $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $pass);
+                            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                              $mensaje = $_POST['mensaje'];
+                              $nombre = $_POST['nombre'];
+                              $email = $_POST['email'];
+
+                              // Guardar el mensaje en la base de datos
+                              $stmt = $pdo->prepare("INSERT INTO mensajes (mensaje, nombre, email) VALUES (?, ?, ?)");
+                              $stmt->execute([$mensaje, $nombre, $email]);
+
+                              echo "<div class='alert alert-success d-flex align-items-center gap-2' role='alert'>
+                                      <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check-circle-fill' viewBox='0 0 16 16'>
+                                        <path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/>
+                                      </svg>
+                                      <div class='user-select-none'>Su consulta fue registrada.</div>
+                                      <button type='button' class='btn-close' aria-label='Close'></button>
+                                    </div>";
+                            }
+                          } catch (PDOException $e) {
+                            //echo "Error: " . $e->getMessage();
+                            echo "<div class='alert alert-danger d-flex align-items-center gap-2' role='alert'>
+                                  <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-exclamation-triangle-fill' viewBox='0 0 16 16'>
+                                    <path d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/>
+                                  </svg>
+                                  <div class='user-select-none'>Ocurrió un error y no se pudo enviar la consulta. Por favor, vuelva a intentarlo.</div>
+                                  <button type='button' class='btn-close' aria-label='Close'></button>
+                                </div>";
+                          }
+                          ?>
                     </div>
                 </div>
               </div>

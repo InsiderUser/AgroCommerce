@@ -116,8 +116,8 @@
         </ul>
       </div>
       <div class="main-panel p-5">
-      <div class="page-header">
-          <h4 class="page-title pb-4">Sobre mis cultivos</h4>
+        <div class="page-header">
+          <h4 class="page-title pb-4">Informacion de Cultivos</h4>
           <!-- <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Tables</a></li>
@@ -126,229 +126,150 @@
           </nav> -->
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-            <div class="card background-light mb-sm-3" style="min-height: 9rem;">
-              <div class="card-body">
-                <h5 class="card-title">Riego</h5>
-                <p class="card-text">Su cultivo debe ser regado en 12hs.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-            <div class="card background-light mb-sm-3" style="min-height: 9rem;">
-              <div class="card-body">
-                <h5 class="card-title">pH</h5>
-                <p class="card-text">El nivel de pH de su suelo es de 5,5.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-            <div class="card background-light mb-sm-3" style="min-height: 9rem;">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-7">
-                    <h5 class="card-title" id="titulo"></h5>
-                    <div id="lugar"></div>
-                    <div id="descripcion" class="mt-2"></div>
-                  </div>
-                  <div class="col-5 px-0 text-center">
-                    <div id="temp"></div>
-                    <img id="icono" class="m-auto" src="" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <h5 class="page-title pb-4">Cultivos</h5>
-                  </div>
-                  <div class="col-4 text-end">
-                    <!-- Button modal -->
-                    <button type="button" class="btn btn-secondary w-auto" id="buttonModal" data-bs-toggle="modal" data-bs-target="#modalNewCrop" style="font-weight: 500;">
-                      Agregar cultivo
-                    </button>
-                  </div>
-                </div>
-                <div class="row m-4 align-items-center justify-content-evenly">
-                  <div class="col-2">
-                    <div class="icon-crop">
-                      <img src="./../../assets/icons/icon-trigo.png" alt="icono-trigo">
+                <p>En esa sección podrás realizar una búsqueda de un cultivo predeterminado, en cierta provincia y año. <br> Como resultado se mostrará una tabla con la información de la misma.</p>
+                <form action="" method="post"><br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="cultivo">Seleccione el cultivo:</label>
+                          <select class="form-select" name="cultivo">
+                            <option value="0" selected></option>
+                            <option value="centeno">Centeno</option>
+                            <option value="girasol">Girasol</option>
+                            <option value="mijo">Mijo</option>
+                            <option value="soja">Soja</option>
+                          </select>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-6">
-                    <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Provincia</h5>
-                        </div>
-                        <p class="mb-1">Mendoza</p>
-                        <small class="text-body-secondary">Actualmente hay 2 hectáreas cultivadas.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Fecha de siembra</h5>
-                        </div>
-                        <p class="mb-1">05/07/2023</p>
-                        <small>La siembra comenzó y culminó el mismo día.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Riego</h5>
-                        </div>
-                        <p class="mb-1">El intervalo de tiempo elegido para hacer el riego a su cultivo es de 12hs.</p>
-                        <small class="text-body-secondary">Si cambia el clima será notificado.</small>
-                      </a>
+                  <div class="row mt-2">
+                    <div class="col-md-4">
+                      <label for="provincia">Ingrese la provincia:</label>
+                      <select class="form-select" name="provincia" id="selectProvince" required>
+                            <option selected disabled>Selecciones su provincia</option>
+                            <option value="Buenos Aires">BUENOS AIRES</option>
+                            <option value="Catamarca">CATAMARCA</option>
+                            <option value="Chaco">CHACO</option>
+                            <option value="Chubut">CHUBUT</option>
+                            <option value="Cordoba">CORDOBA</option>
+                            <option value="Corrientes">CORRIENTES</option>
+                            <option value="Entre Rios">ENTRE RIOS</option>
+                            <option value="Formosa">FORMOSA</option>
+                            <option value="Jujuy">JUJUY</option>
+                            <option value="La Pampa">LA PAMPA</option>
+                            <option value="La Rioja">LA RIOJA</option>
+                            <option value="Mendoza">MENDOZA</option>
+                            <option value="Misiones">MISIONES</option>
+                            <option value="Neuquen">NEUQUEN</option>
+                            <option value="Rio Negro">RIO NEGRO</option>
+                            <option value="Salta">SALTA</option>
+                            <option value="San Luis">SAN LUIS</option>
+                            <option value="Santa Cruz">SANTA CRUZ</option>
+                            <option value="Santa Fe">SANTA FE</option>
+                            <option value="Santiago Del Estero">SANTIAGO DEL ESTERO</option>
+                            <option value="Tierra del Fuego">TIERRA DEL FUEGO</option>
+                            <option value="Tucuman">TUCUMAN</option>
+                        </select>
                     </div>
                   </div>
-                </div>
-                <div class="row m-4 align-items-center justify-content-evenly">
-                  <div class="col-2">
-                    <div class="icon-crop">
-                      <img src="./../../assets/icons/icon-girasol.png" alt="icono-trigo">
+                  <div class="row mt-2">
+                    <div class="col-md-4">
+                      <label for="cultivo">Ingrese el año:</label>
+                      <input class="form-control" type="number" name="anio" value="0">
                     </div>
                   </div>
-                  <div class="col-6">
-                    <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Provincia</h5>
-                        </div>
-                        <p class="mb-1">Mendoza</p>
-                        <small class="text-body-secondary">Actualmente hay 2 hectáreas cultivadas.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Fecha de siembra</h5>
-                        </div>
-                        <p class="mb-1">05/07/2023</p>
-                        <small>La siembra comenzó y culminó el mismo día.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Riego</h5>
-                        </div>
-                        <p class="mb-1">El intervalo de tiempo elegido para hacer el riego a su cultivo es de 12hs.</p>
-                        <small class="text-body-secondary">Si cambia el clima será notificado.</small>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal modal-lg fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalNewCrop">Nuevo cultivo</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-          <form
-                  class="pt-3"
-                  method="post"
-                  action="../../backend/new_farm.php"
-                >
-                  <!-- Provincia -->
-                  <div class="form-group">
-                    <select
-                      class="form-control"
-                      name="province"
-                      required
-                      id="exampleFormControlSelect2"
-                    >
-                      <option selected disabled>
-                        En que provincia se ubicará?
-                      </option>
-
-                      <?php
-                        include "../../backend/conection.php";
-                        $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos;");
-                        $provincias = pg_fetch_all($provincias);
-                        mostrarProvincias($provincias);
-
-                      function mostrarProvincias($provincias){
-                          if ($provincias !== false) {
-                              foreach ($provincias as $fila) {
-                                  $provincia_nombre = $fila['provincia_nombre'];
-                                  echo "<option value=\"$provincia_nombre\">$provincia_nombre</option>";
-                              }
-                          }
-                      }
-                      ?>
-                    </select>
-                  </div>
-                  <!-- Cultivo -->
-                  <div class="form-group mt-3">
-                    <select name="seed" required class="form-control" id="exampleFormControlSelect2">
-                      <option selected disabled>Que cultivo sembrará?</option>
-
-                      <?php
-                        include "../../backend/conection.php";
-                        $cultivos = pg_query($conectado,"SELECT DISTINCT cultivo_nombre FROM cultivos");
-                        $cultivos = pg_fetch_all($cultivos);
-                        mostrarCultivos($cultivos);
-
-                      function mostrarCultivos($cultivos){
-                          if ($cultivos !== false) {
-                              foreach ($cultivos as $fila) {
-                                  $cultivo_nombre = $fila['cultivo_nombre'];
-                                  echo "<option value=\"$cultivo_nombre\">$cultivo_nombre</option>";
-                              }
-                          }
-                      }
-                      ?>
-                     
-                    </select>
-                  </div>
-                  <!-- Intervalo de riego -->
-                  <div class="form-group mt-3">
-                    <input
-                      required
-                      type="number"
-                      name="interval"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Intervalo de riego"
-                    />
-                    <!-- Podriamos agg una i con info del tema tipo modal -->
-                  </div>
-                  <!-- Numero de hectareas -->
-                  <div class="form-group  mt-3">
-                    <input
-                      required
-                      type="number"
-                      name="hectare"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Hectareas cultivadas"
-                    />
-                  </div>
-                  <!-- Fecha de siembra -->
-                  <div class="form-group mt-3">
-                    <input
-                      required
-                      type="date"
-                      name="seedtime"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Fecha de siembra"
-                    />
-                  </div>
+                  <button class="btn btn-primary px-4 mt-4" type="submit" style="font-weight: 500;">Enviar</button>
                 </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" type="submit" class="btn btn-primary">Guardar cambios</button>
+                <?php
+                      
+                  include "../../backend/conection.php";
+
+                  if (isset($_REQUEST['cultivo']) && isset($_REQUEST['anio']) && isset($_REQUEST['provincia'])) {
+                    $opcion = $_REQUEST['cultivo'];
+                    $anio = $_REQUEST['anio'];
+                    $provincia = $_REQUEST['provincia'];
+                  
+                    if($opcion=='0' and $anio=='0' and $provincia='0'){
+                      echo "Selecciona un cultivo";
+                    }
+                    else{
+                      $query = "SELECT * from cultivos where cultivo_nombre = '$opcion' and anio='$anio' and provincia_nombre= '$provincia'";
+      
+                      $result = pg_query($conectado, $query);
+                      if (!$result) {
+                        echo "Error en la consulta.";
+                          exit;
+                      }
+
+                      echo "<br><h6>Cultivo: $opcion</h6>";
+                      echo "<h6>Provincia: $provincia</h6>";
+                      echo "<h6>Año: $anio</h6><br>";
+                      
+                      $sumaTotal1 = 0;
+                      $sumaTotal2 = 0;
+                      $sumaTotal3 = 0;
+                      $sumaTotal4 = 0;
+                      
+                      $contador = 0;
+                      
+                      while ($row = pg_fetch_assoc($result)) {
+                        // Obtener el valor de la columna y sumarlo
+                        $valorColumna_Superficie_Sembrada = (int)$row['superficie_sembrada_ha'];
+                        $valorColumna_Superficie_Cosechada = (int)$row['superficie_cosechada_ha'];
+                        $valorColumna_Produccion_Tonelada_Metro = (int)$row['produccion_tm'];
+                        $valorColumna_Rendimiento_Economico_kg_metro = (int)$row['rendimiento_kgxha'];
+                        
+                        
+                        $sumaTotal1 += $valorColumna_Superficie_Sembrada;
+                        $sumaTotal2 += $valorColumna_Superficie_Cosechada;
+                        $sumaTotal3 += $valorColumna_Produccion_Tonelada_Metro;
+                        $sumaTotal4 += $valorColumna_Rendimiento_Economico_kg_metro;
+                        $contador++;
+                        
+                      } 
+
+                      if($sumaTotal1 == 0 & $sumaTotal2 == 0 & $sumaTotal1 == 0 & $sumaTotal2 == 0){
+                        echo "NO SE HAN ENCONTRADO RESULTADOS PARA SU CONSULTA";
+                      }
+                      else{
+                        $valor1 = number_format(($sumaTotal1/($contador-1)), 2);
+                        $valor2 = number_format(($sumaTotal2/($contador-1)), 2);
+
+                        echo "<table class='table table-hover caption-top'>";
+                          echo "<caption>Los números resultantes de cada columna representan el promedio:</caption>";
+                          echo "<thead>";
+                            echo "<tr>
+                                    <th scope='col'>Superficie Sembrada por Hectarea</th>
+                                    <th scope='col'>Superficie Cosechada por Hectarea</th>
+                                    <th scope='col'>Produccion Tonelada/metro</th>
+                                    <th scope='col'>Rendimiento Economico kg/m</th>
+                                  </tr>";
+                          echo "</thead>";
+                          echo "<tbody>";
+                            echo "<tr>
+                                    <td>" .$valor1."</td>
+                                    <td>" .$valor2."</td>
+                                    <td>" .number_format(($sumaTotal3/($contador-1)), 2)."</td>
+                                    <td>" .number_format(($sumaTotal4/($contador-1)), 2)."</td>
+                                  </tr>";
+                          echo "</tbody>";
+                        echo "</table>";            
+
+                          // echo "<div class='single'>Promedio de Superficie Sembrada por Hectarea: " .$valor1."</div>";
+                          // echo "<div class='single'>Promedio de Superficie Cosechada por Hectarea: " .$valor2."</div>";
+                          // echo "<div class='single'>Promedio de Produccion Tonelada/metro: " .number_format(($sumaTotal3/($contador-1)), 2)."</div>";
+                          // echo "<div class='single'>Promedio de Rendimiento Economico kg/m: " .number_format(($sumaTotal4/($contador-1)), 2)."</div>";
+                      }
+                    }
+
+                    pg_close($conectado);
+                  }
+                ?>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -361,14 +282,6 @@
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
-    <script>
-      const myModal = document.getElementById('modalNewCrop')
-      const myInput = document.getElementById('buttonModal')
-
-      myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-      })
     </script>
   </body>
 </html>

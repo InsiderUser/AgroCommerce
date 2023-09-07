@@ -1,10 +1,25 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;300;400;500;600;700&display=swap");
+div.alert {
+  position: absolute;
+  top: -96px;
+  right: 0;
+  padding-right: 35px;
+  max-width: 60rem;
+}
+div.alert button.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 4px;
+  height: 4px;
+}
+
 /*!
  * Bootstrap  v5.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;300;400;500;600;700&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -11882,7 +11897,20 @@ textarea.form-control-lg {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.card.background-light {
+  background-color: #ffe599;
+}
+
+.icon-crop {
+  width: 200px;
+  border: 1px solid #fcb517;
+  border-radius: 50%;
+}
+.icon-crop img {
+  max-width: 200px;
 }
 
 .form-login,
@@ -11967,23 +11995,9 @@ img.img-logo {
   font-family: "Montserrat", sans-serif;
 }
 
-.clima {
-  border: 1px solid gray;
-  padding: 1rem;
-  height: 20rem;
-  width: 15rem;
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #78c892;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#titulo {
-  font-size: 2.5rem;
+.nav.nav-tabs .nav-link.active {
+  color: #fd7c35;
+  font-weight: 600;
 }
 
 #lugar {
@@ -11991,7 +12005,7 @@ img.img-logo {
 }
 
 #temp {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }
 
 #descripcion {

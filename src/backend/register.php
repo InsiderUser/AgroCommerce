@@ -1,7 +1,7 @@
    
 <?php
 
-    include "conection.php";
+    include "../backend/conection.php";
     //Datos personales del usuario
     $newUser = $_POST['newUser'];
     $newPassword = $_POST['newPassword'];
@@ -25,7 +25,7 @@
     }else{
         $pg = pg_query($conectado,"INSERT INTO clientes (usuario,clave,correo) VALUES ('$newUser','$newPassword','$newMail')");
         $pd = pg_query($conectado, "INSERT INTO cultivos_clientes (provincia,tipo_cultivo,intervalo,hectarea,fecha) VALUES ('$newProvince','$newSeed','$newInterval','$newHectare','$newDate')");
-        header('Location: http://localhost/agrocommerce/src/app/pages/layout.html');
+        header('Location: http://localhost/agrocommerce/src/app/pages/layout.php');
         exit();
 
         ## BUG
