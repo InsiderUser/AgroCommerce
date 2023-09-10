@@ -1,3 +1,8 @@
+<?php
+session_start();
+$userId = $_SESSION['user_id'];
+// echo($userId);
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -12,7 +17,9 @@
     <link rel="stylesheet" href="clima.css">
     <link rel="shortcut icon" href="../../assets/images/Logo.ico" />
   </head>
+
   <body onload=consulta()>
+
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
@@ -66,6 +73,7 @@
     </nav>
 
     <div class="main-container d-flex">
+      <!-- Sidebar -->
       <div class="sidebar" id="sidebar">
         <ul class="nav d-flex flex-column p-2">
           <li class="nav-item">
@@ -76,7 +84,9 @@
                 <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column text-start">
-                <span class="font-weight-bold text-secondary">David Moreno</span>
+                <?php
+                include '../../backend/validateProfile.php';
+                ?>
               </div>
             </a>
           </li>
@@ -97,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item mt-3">
-            <a class="nav-link" href="./pests-insecticides.html">
+            <a class="nav-link" href="./pests-insecticides.php">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
               <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
             </svg>
@@ -115,6 +125,7 @@
           </li>
         </ul>
       </div>
+
       <div class="main-panel p-5">
       <div class="page-header">
           <h4 class="page-title pb-4">Sobre mis cultivos</h4>
@@ -160,6 +171,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -170,81 +182,23 @@
                   </div>
                   <div class="col-4 text-end">
                     <!-- Button modal -->
-                    <button type="button" class="btn btn-secondary w-auto" id="buttonModal" data-bs-toggle="modal" data-bs-target="#modalNewCrop" style="font-weight: 500;">
-                      Agregar cultivo
-                    </button>
+                    <?php
+                    include '../../backend/validateButton.php';
+                    ?>
                   </div>
                 </div>
-                <div class="row m-4 align-items-center justify-content-evenly">
-                  <div class="col-2">
-                    <div class="icon-crop">
-                      <img src="./../../assets/icons/icon-trigo.png" alt="icono-trigo">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Provincia</h5>
-                        </div>
-                        <p class="mb-1">Mendoza</p>
-                        <small class="text-body-secondary">Actualmente hay 2 hectáreas cultivadas.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Fecha de siembra</h5>
-                        </div>
-                        <p class="mb-1">05/07/2023</p>
-                        <small>La siembra comenzó y culminó el mismo día.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Riego</h5>
-                        </div>
-                        <p class="mb-1">El intervalo de tiempo elegido para hacer el riego a su cultivo es de 12hs.</p>
-                        <small class="text-body-secondary">Si cambia el clima será notificado.</small>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="row m-4 align-items-center justify-content-evenly">
-                  <div class="col-2">
-                    <div class="icon-crop">
-                      <img src="./../../assets/icons/icon-girasol.png" alt="icono-trigo">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Provincia</h5>
-                        </div>
-                        <p class="mb-1">Mendoza</p>
-                        <small class="text-body-secondary">Actualmente hay 2 hectáreas cultivadas.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Fecha de siembra</h5>
-                        </div>
-                        <p class="mb-1">05/07/2023</p>
-                        <small>La siembra comenzó y culminó el mismo día.</small>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Riego</h5>
-                        </div>
-                        <p class="mb-1">El intervalo de tiempo elegido para hacer el riego a su cultivo es de 12hs.</p>
-                        <small class="text-body-secondary">Si cambia el clima será notificado.</small>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+
+                <?php
+                include '../../backend/validateSession.php';
+                ?>
+            
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Modal -->
+ 
+    <!-- Modal: agregar cultivo-->
     <div class="modal modal-lg fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -257,7 +211,7 @@
           <form
                   class="pt-3"
                   method="post"
-                  action="../../backend/new_farm.php"
+                  action="../../backend/newFarm.php"
                 >
                   <!-- Provincia -->
                   <div class="form-group">
@@ -345,11 +299,12 @@
                       placeholder="Fecha de siembra"
                     />
                   </div>
+                  <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          </div>
                 </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" type="submit" class="btn btn-primary">Guardar cambios</button>
-          </div>
+          
         </div>
       </div>
     </div>

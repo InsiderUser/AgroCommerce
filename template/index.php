@@ -1,7 +1,9 @@
 <?php
 session_start();
 $userId = $_SESSION['user_id'];
+echo($userId);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
