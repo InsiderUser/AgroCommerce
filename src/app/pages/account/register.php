@@ -36,6 +36,7 @@
             class="pt-2"
             method="post"
             action="../../../backend/register.php"
+            enctype="multipart/form-data"
           >
             <!-- Nombre de usuario -->
             <div class="form-group">
@@ -70,6 +71,17 @@
                 required
               />
             </div>
+            <!-- Imagen de perfil -->
+            <div class="form-group mt-2">
+              <input
+               type="file"
+                name="image"
+                class="form-control"
+                id="profile"
+                accept=".png, .jpg, .jpeg" 
+                required
+              />
+            </div>
             <hr />
             <!-- Provincia -->
             <div class="form-group">
@@ -79,7 +91,7 @@
                 id="selectProvince"
                 required
               >
-                <option selected disabled>Selecciones su provincia</option>
+                <option selected disabled>Seleccione su provincia</option>
                 <?php
                         include "../../../backend/conection.php";
                         $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos");
