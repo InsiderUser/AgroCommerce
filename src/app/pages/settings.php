@@ -140,188 +140,134 @@ $userId = $_SESSION['user_id'];
                     <!-- Contenido -->
                     <div class="tab-pane fade show active" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab" tabindex="0">
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <!-- Nombre de usuario -->
-                            <div class="form-group">
-                                <input
-                                type="text"
-                                class="form-control"
-                                name="newUser"
-                                placeholder="Usuario"
-                                />
-                            </div>
-                            <!-- Email -->
-                            <div class="form-group mt-2">
-                                <input
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                id="inputEmail"
-                                placeholder="Email"
-                                />
-                            </div>
-                            <!-- Img usuario -->
-                            <div class="form-group mt-4">
-                                <label for="userImg" class="form-label">Seleccione una imagen para su perfil</label>
-                                <input class="form-control" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
-                            </div>
+                            <form method="" action="">
+                                <!-- Nombre de usuario -->
+                                <div class="form-group">
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    name="newUser"
+                                    placeholder="Usuario"
+                                    />
+                                </div>
+                                <!-- Email -->
+                                <div class="form-group mt-2">
+                                    <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control"
+                                    id="inputEmail"
+                                    placeholder="Email"
+                                    disabled/>
+                                </div>
+                                <!-- Img usuario -->
+                                <div class="form-group mt-4">
+                                    <label for="userImg" class="form-label">Seleccione una imagen para su perfil</label>
+                                    <input class="form-control" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
+                                </div>
 
-                            <hr>
-                            <!-- Contrasena -->
-                            <h5>Cambiar contraseña</h5>
-                            <div class="form-group mt-2">
-                                <input
-                                type="password"
-                                name="newPassword"
-                                minlength="7"
-                                class="form-control"
-                                id="inputPassword1"
-                                placeholder="Nueva contraseña"
-                                />
-                            </div>
-                            <div class="form-group mt-2">
-                                <input
-                                type="password"
-                                name="confirmPassword"
-                                minlength="7"
-                                class="form-control"
-                                id="inputPassword2"
-                                placeholder="Confirmar contraseña"
-                                />
-                            </div>
+                                <hr>
+                                <!-- Contrasena -->
+                                <h5>Cambiar contraseña</h5>
+                                <div class="form-group mt-2">
+                                    <input
+                                    type="password"
+                                    name="password"
+                                    minlength="7"
+                                    class="form-control"
+                                    id="inputPassword1"
+                                    placeholder="Actual contraseña"
+                                    />
+                                </div>
+                                <div class="form-group mt-2">
+                                    <input
+                                    type="password"
+                                    name="newPassword"
+                                    minlength="7"
+                                    class="form-control"
+                                    id="inputPassword2"
+                                    placeholder="Nueva contraseña"
+                                    />
+                                </div>
+                                <div class="form-group mt-2">
+                                    <input
+                                    type="password"
+                                    name="confirmPassword"
+                                    minlength="7"
+                                    class="form-control"
+                                    id="inputPassword3"
+                                    placeholder="Confirmar contraseña"
+                                    />
+                                </div>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn btn-primary px-5">
+                                        Guardar cambios
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-crops" role="tabpanel" aria-labelledby="v-pills-crops-tab" tabindex="0">
                         <div class="col-lg-6 col-md-8 col-sm-12">
-                            
                             <!-- Tendríamos que verificar si tiene uno o dos cultivos y replicar la info para el cultivo 2 -->
                             <h5>Cultivo [Nombre]</h5>
-                            <!-- Provincia -->
-                            <div class="form-group mt-2">
-                                <select
-                                    class="form-select"
-                                    name="province"
-                                    id="selectProvince"
-                                >
-                                    <option selected disabled>Provincia</option>
-                                    <?php
-                                            include "../../../backend/conection.php";
-                                            $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos");
-                                            $provincias = pg_fetch_all($provincias);
-                                            mostrarProvincias($provincias);
+                            <form method="" action="">
+                                <!-- Provincia -->
+                                <div class="form-group mt-4">
+                                    <select
+                                        class="form-select"
+                                        name="province"
+                                        id="selectProvince"
+                                        disabled>
+                                        <option selected disabled>Provincia</option>
+                                        <?php
+                                                include "../../../backend/conection.php";
+                                                $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos");
+                                                $provincias = pg_fetch_all($provincias);
+                                                mostrarProvincias($provincias);
 
-                                        function mostrarProvincias($provincias){
-                                            if ($provincias !== false) {
-                                                foreach ($provincias as $fila) {
-                                                    $provincia_nombre = $fila['provincia_nombre'];
-                                                    echo "<option value=\"$provincia_nombre\">$provincia_nombre</option>";
+                                            function mostrarProvincias($provincias){
+                                                if ($provincias !== false) {
+                                                    foreach ($provincias as $fila) {
+                                                        $provincia_nombre = $fila['provincia_nombre'];
+                                                        echo "<option value=\"$provincia_nombre\">$provincia_nombre</option>";
+                                                    }
                                                 }
                                             }
-                                        }
-                                        ?>
-                                </select>
-                            </div>
-                            <!-- Cultivo -->
-                            <div class="form-group mt-2">
-                                <select class="form-select" name="seed" id="selectSeed" required>
-                                    <option selected disabled>Cultivo</option>
-                                    <?php
-                                            include "../../../backend/conection.php";
-                                            $cultivos = pg_query($conectado,"SELECT DISTINCT cultivo_nombre FROM cultivos");
-                                            $cultivos = pg_fetch_all($cultivos);
-                                            mostrarCultivos($cultivos);
+                                            ?>
+                                    </select>
+                                </div>
+                                <!-- Cultivo -->
+                                <div class="form-group mt-2">
+                                    <select class="form-select" name="seed" id="selectSeed" disabled>
+                                        <option selected disabled>Cultivo</option>
+                                        <?php
+                                                include "../../../backend/conection.php";
+                                                $cultivos = pg_query($conectado,"SELECT DISTINCT cultivo_nombre FROM cultivos");
+                                                $cultivos = pg_fetch_all($cultivos);
+                                                mostrarCultivos($cultivos);
 
-                                        function mostrarCultivos($cultivos){
-                                            if ($cultivos !== false) {
-                                                foreach ($cultivos as $fila) {
-                                                    $cultivo_nombre = $fila['cultivo_nombre'];
-                                                    echo "<option value=\"$cultivo_nombre\">$cultivo_nombre</option>";
+                                            function mostrarCultivos($cultivos){
+                                                if ($cultivos !== false) {
+                                                    foreach ($cultivos as $fila) {
+                                                        $cultivo_nombre = $fila['cultivo_nombre'];
+                                                        echo "<option value=\"$cultivo_nombre\">$cultivo_nombre</option>";
+                                                    }
                                                 }
                                             }
-                                        }
-                                        ?>
-                                </select>
-                            </div>
-                            <!-- Intervalo de riego -->
-                            <div class="d-flex mt-2">
-                                <div class="form-group col-11">
-                                    <input
-                                        type="number"
-                                        name="interval"
-                                        class="form-control"
-                                        id="exampleInputUsername1"
-                                        placeholder="Intervalo de riego"
-                                    />
+                                            ?>
+                                    </select>
                                 </div>
-                                <button
-                                type="button"
-                                class="btn"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip"
-                                data-bs-title="Ingrese cada cuantas horas debe regar su cultivo, para recordarle."
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="16"
-                                        height="16"
-                                        fill="currentColor"
-                                        class="bi bi-info-circle"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path
-                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                        ></path>
-                                        <path
-                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                        ></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <!-- Numero de hectareas -->
-                            <div class="d-flex mt-2">
-                                <div class="form-group col-11">
-                                    <input
-                                        type="number"
-                                        name="hectare"
-                                        class="form-control"
-                                        id="exampleInputUsername1"
-                                        placeholder="Hectareas cultivadas"
-                                    />
-                                </div>
-                                <button
-                                type="button"
-                                class="btn"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip"
-                                data-bs-title="Ingrese el número de hectareas que tiene cultivadas actualmente o que planea cultivar."
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="16"
-                                        height="16"
-                                        fill="currentColor"
-                                        class="bi bi-info-circle"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path
-                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                        ></path>
-                                        <path
-                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                        ></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <!-- Fecha de siembra -->
-                            <div class="d-flex mt-2">
-                                <div class="form-group col-11">
-                                    <input
-                                        type="date"
-                                        name="seedtime"
-                                        class="form-control"
-                                        id="inputDate"
-                                    />
+                                <!-- Intervalo de riego -->
+                                <div class="d-flex mt-2">
+                                    <div class="form-group col-11">
+                                        <input
+                                            type="number"
+                                            name="interval"
+                                            class="form-control"
+                                            id="exampleInputUsername1"
+                                            placeholder="Intervalo de riego"
+                                        />
                                     </div>
                                     <button
                                     type="button"
@@ -329,7 +275,7 @@ $userId = $_SESSION['user_id'];
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
-                                    data-bs-title="Ingrese la fecha de siempre de su cultivo."
+                                    data-bs-title="Ingrese cada cuantas horas debe regar su cultivo, para recordarle."
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -347,7 +293,84 @@ $userId = $_SESSION['user_id'];
                                             ></path>
                                         </svg>
                                     </button>
-                            </div>
+                                </div>
+                                <!-- Numero de hectareas -->
+                                <div class="d-flex mt-2">
+                                    <div class="form-group col-11">
+                                        <input
+                                            type="number"
+                                            name="hectare"
+                                            class="form-control"
+                                            id="exampleInputUsername1"
+                                            placeholder="Hectareas cultivadas"
+                                        />
+                                    </div>
+                                    <button
+                                    type="button"
+                                    class="btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Ingrese el número de hectareas que tiene cultivadas actualmente o que planea cultivar."
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="currentColor"
+                                            class="bi bi-info-circle"
+                                            viewBox="0 0 16 16"
+                                        >
+                                            <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                            ></path>
+                                            <path
+                                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <!-- Fecha de siembra -->
+                                <div class="d-flex mt-2">
+                                    <div class="form-group col-11">
+                                        <input
+                                            type="date"
+                                            name="seedtime"
+                                            class="form-control"
+                                            id="inputDate"
+                                            disabled/>
+                                        </div>
+                                        <button
+                                        type="button"
+                                        class="btn"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Ingrese la fecha de siempre de su cultivo."
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-info-circle"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path
+                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                                ></path>
+                                                <path
+                                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                                                ></path>
+                                            </svg>
+                                        </button>
+                                </div>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn btn-primary px-5">
+                                        Guardar cambios
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
