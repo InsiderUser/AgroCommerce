@@ -1,7 +1,7 @@
 <?php
-session_start();
-$userId = $_SESSION['user_id'];
-// echo($userId);
+  session_start();
+  $userId = $_SESSION['user_id'];
+  // echo($userId);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +14,6 @@ $userId = $_SESSION['user_id'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/custom.css">
-    <link rel="stylesheet" href="clima.css">
     <link rel="shortcut icon" href="../../assets/images/Logo.ico" />
   </head>
 
