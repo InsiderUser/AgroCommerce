@@ -58,6 +58,30 @@
                 required
               />
             </div>
+            <!-- Img usuario -->
+            <div class="d-flex mt-2">
+              <div class="form-group col-11">
+                <input class="form-control" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
+              </div>
+              <button
+                type="button"
+                class="btn"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="Seleccione una imagen para su perfil">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-info-circle"
+                  viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                </svg>
+              </button>
+            </div>
             <!-- Contrasena -->
             <div class="form-group mt-2">
               <input
@@ -119,8 +143,8 @@
               </select>
             </div>
             <div class="row mt-2">
+              <!-- Intervalo de riego -->
               <div class="col-md-6 d-flex">
-                <!-- Intervalo de riego -->
                 <div class="form-group">
                   <input
                     type="number"
@@ -130,7 +154,6 @@
                     placeholder="Intervalo de riego"
                     required
                   />
-                  <!-- Podriamos agg una i con info del tema tipo modal -->
                 </div>
                 <button
                   type="button"
@@ -157,8 +180,8 @@
                   </svg>
                 </button>
               </div>
+              <!-- Numero de hectareas -->
               <div class="col-md-6 d-flex">
-                <!-- Numero de hectareas -->
                 <div class="form-group">
                   <input
                     type="number"
@@ -195,9 +218,9 @@
                 </button>
               </div>
             </div>
+            <!-- Fecha de siembra -->
             <div class="row mt-2">
               <div class="d-flex">
-                <!-- Fecha de siembra -->
                 <div class="form-group col-11">
                   <input
                     type="date"
