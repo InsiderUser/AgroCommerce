@@ -5,6 +5,4 @@ $pg = pg_query($conectado,"SELECT image_location FROM clientes WHERE id = '$user
 $pg = pg_fetch_assoc($pg);
 
 echo("<img src=\"../".$pg['image_location']."\">");
-
-
 ?>

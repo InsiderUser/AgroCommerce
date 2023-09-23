@@ -82,7 +82,6 @@ $userId = $_SESSION['user_id'];
                <?php
                 include '../../backend/getImage.php'
                ?>
-               <!-- <img src="../../assets/profile-images/Perfil (3).jpg" alt="Profile Image"> -->
                 <!-- <span class="login-status online"></span> -->
                 <!--change to offline or busy as needed-->
               </div>

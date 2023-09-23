@@ -18,10 +18,14 @@
     $newHectare = $_POST['hectare'];
     $newDate = $_POST['seedtime'];
 
-    $data = pg_query($conectado,"SELECT usuario,clave FROM clientes WHERE usuario='$newUser'");
-    $data = pg_fetch_assoc($data); 
+    $dataUser = pg_query($conectado,"SELECT usuario FROM clientes WHERE (usuario='$newUser')");
+    $dataUser = pg_fetch_assoc($dataUser); 
 
-    if($data && $data['usuario']===$newUser){        
+    $dataMail = pg_query($conectado,"SELECT correo FROM clientes WHERE (correo='$newMail')");
+    $dataMail = pg_fetch_assoc($dataMail); 
+
+
+    if(($dataMail && $dataMail['correo']===$newMail) || ($dataUser && $dataUser['usuario']===$newUser) ){        
         header('Location: http://localhost/agrocommerce/src/app/pages/account/register.php');
         exit();
         ## BUG
