@@ -78,7 +78,9 @@
           <li class="nav-item">
             <a href="#" class="nav-link d-flex">
               <div class="nav-profile-image">
-                <img src="../../assets/images/user-profile.png" alt="img--profile">
+               <?php
+                include '../../backend/getImage.php'
+               ?>
                 <!-- <span class="login-status online"></span> -->
                 <!--change to offline or busy as needed-->
               </div>
@@ -190,13 +192,13 @@
                 <?php
                 include '../../backend/validateSession.php';
                 ?>
-            
+
             </div>
           </div>
         </div>
       </div>
     </div>
- 
+
     <!-- Modal: agregar cultivo-->
     <div class="modal modal-lg fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
       <div class="modal-dialog">
@@ -261,7 +263,7 @@
                           }
                       }
                       ?>
-                     
+
                     </select>
                   </div>
                   <!-- Intervalo de riego -->
@@ -303,7 +305,7 @@
           </div>
                 </form>
           </div>
-          
+
         </div>
       </div>
     </div>
