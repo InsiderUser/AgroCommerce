@@ -192,11 +192,6 @@
                 <?php
                 include '../../backend/validateSession.php';
                 ?>
-<<<<<<< HEAD
-
-=======
-              </div>
->>>>>>> 3a3e637626f59ad05eaae49fffd151eb349326ea
             </div>
           </div>
         </div>
