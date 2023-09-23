@@ -1,7 +1,7 @@
 <?php
-session_start();
-$userId = $_SESSION['user_id'];
-// echo($userId);
+  session_start();
+  $userId = $_SESSION['user_id'];
+  // echo($userId);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +14,6 @@ $userId = $_SESSION['user_id'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/custom.css">
-    <link rel="stylesheet" href="clima.css">
     <link rel="shortcut icon" href="../../assets/images/Logo.ico" />
   </head>
 
@@ -44,7 +43,7 @@ $userId = $_SESSION['user_id'];
               </a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="../pages/settings.php"
                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                 data-bs-custom-class="custom-tooltip"
                 data-bs-title="Configuración"
@@ -129,14 +128,14 @@ $userId = $_SESSION['user_id'];
       </div>
 
       <div class="main-panel p-5">
-      <div class="page-header">
-          <h4 class="page-title pb-4">Sobre mis cultivos</h4>
-          <!-- <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Tables</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-            </ol>
-          </nav> -->
+        <div class="page-header">
+            <h4 class="page-title pb-4">Sobre mis cultivos</h4>
+            <!-- <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+              </ol>
+            </nav> -->
         </div>
         <div class="row">
           <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
@@ -193,7 +192,11 @@ $userId = $_SESSION['user_id'];
                 <?php
                 include '../../backend/validateSession.php';
                 ?>
+<<<<<<< HEAD
 
+=======
+              </div>
+>>>>>>> 3a3e637626f59ad05eaae49fffd151eb349326ea
             </div>
           </div>
         </div>
@@ -201,7 +204,7 @@ $userId = $_SESSION['user_id'];
     </div>
 
     <!-- Modal: agregar cultivo-->
-    <div class="modal modal-lg fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
+    <div class="modal fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -267,28 +270,33 @@ $userId = $_SESSION['user_id'];
 
                     </select>
                   </div>
-                  <!-- Intervalo de riego -->
-                  <div class="form-group mt-3">
-                    <input
-                      required
-                      type="number"
-                      name="interval"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Intervalo de riego"
-                    />
-                    <!-- Podriamos agg una i con info del tema tipo modal -->
-                  </div>
-                  <!-- Numero de hectareas -->
-                  <div class="form-group  mt-3">
-                    <input
-                      required
-                      type="number"
-                      name="hectare"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Hectareas cultivadas"
-                    />
+                  <div class="row mt-3">
+                    <div class="col-md-6">
+                      <!-- Intervalo de riego -->
+                      <div class="form-group">
+                        <input
+                          required
+                          type="number"
+                          name="interval"
+                          class="form-control"
+                          id="exampleInputUsername1"
+                          placeholder="Intervalo de riego"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <!-- Numero de hectareas -->
+                      <div class="form-group">
+                        <input
+                          required
+                          type="number"
+                          name="hectare"
+                          class="form-control"
+                          id="exampleInputUsername1"
+                          placeholder="Hectareas cultivadas"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <!-- Fecha de siembra -->
                   <div class="form-group mt-3">

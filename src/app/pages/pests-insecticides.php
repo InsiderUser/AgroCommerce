@@ -41,7 +41,7 @@ $userId = $_SESSION['user_id'];
               </a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="../pages/settings.php"
                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                 data-bs-custom-class="custom-tooltip"
                 data-bs-title="Configuración"
