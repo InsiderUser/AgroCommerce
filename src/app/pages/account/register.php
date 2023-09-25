@@ -62,7 +62,7 @@
             <!-- Img usuario -->
             <div class="d-flex mt-2">
               <div class="form-group col-11">
-                <input class="form-control" name="image" type="file" id="profile" placeholder="Imagen de perfil" accept="image/*">
+                <input class="form-control" name="image" type="file" id="profile" placeholder="Imagen de perfil" accept="image/*" required>
               </div>
               <button
                 type="button"

@@ -1,6 +1,26 @@
 <?php
-session_start();
-$userId = $_SESSION['user_id'];
+  include '../../backend/conection.php';
+  session_start();
+  $userId = $_SESSION['user_id'];
+
+//   Obtener mail
+function getEmail($conectado, $userId){
+    $email = pg_query($conectado,"SELECT correo FROM clientes WHERE id=$userId");
+    $email = pg_fetch_assoc($email);
+    echo($email['correo']);
+}
+
+function getCrops($conectado, $userId,$flag){
+    $crops = pg_query($conectado,"SELECT provincia,tipo_cultivo,fecha FROM cultivos_clientes WHERE fk_clientes=$userId");
+    $crops = pg_fetch_assoc($crops);
+   if($flag==1){
+    echo($crops['provincia']);
+   }elseif($flag==2){
+    echo($crops['tipo_cultivo']);
+   }else{
+    echo($crops['fecha']);
+   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +98,9 @@ $userId = $_SESSION['user_id'];
             <li class="nav-item">
                 <a href="#" class="nav-link d-flex">
                 <div class="nav-profile-image">
-                    <img src="../../assets/images/user-profile.png" alt="img--profile">
+                <?php
+                include '../../backend/getImage.php'
+                ?>
                     <!-- <span class="login-status online"></span> -->
                     <!--change to offline or busy as needed-->
                 </div>
@@ -138,7 +160,18 @@ $userId = $_SESSION['user_id'];
                     <div class="border-start h-100"></div>
                     <div class="tab-content px-5 w-100" id="v-pills-tabContent">
                     <!-- Contenido -->
+
+
+                    <!-- Datos del usuario a modificar -->
+                    <div id="myModal" style="display: none;">
+    <div class="modal-content">
+        <!-- Contenido del modal aquí -->
+        <p>¡Formulario enviado con éxito!</p>
+    </div>
+</div>
+
                     <div class="tab-pane fade show active" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab" tabindex="0">
+                        <form class="pt-4" method="post" action="../../backend/updatePersonalData.php" enctype="multipart/form-data">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <!-- Nombre de usuario -->
                             <div class="form-group">
@@ -156,18 +189,33 @@ $userId = $_SESSION['user_id'];
                                 name="email"
                                 class="form-control"
                                 id="inputEmail"
-                                placeholder="Email"
+                                placeholder="
+                                <?php
+                                getEmail($conectado,$userId);
+                                ?>
+                                "
+                                disabled
                                 />
                             </div>
                             <!-- Img usuario -->
                             <div class="form-group mt-4">
                                 <label for="userImg" class="form-label">Seleccione una imagen para su perfil</label>
-                                <input class="form-control" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
+                                <input class="form-control" name="newImage" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
                             </div>
 
                             <hr>
                             <!-- Contrasena -->
                             <h5>Cambiar contraseña</h5>
+                            <div class="form-group mt-2">
+                                <input
+                                type="password"
+                                name="actualPassword"
+                                minlength="7"
+                                class="form-control"
+                                id="inputPassword0"
+                                placeholder="Actual contraseña"
+                                />
+                            </div>
                             <div class="form-group mt-2">
                                 <input
                                 type="password"
@@ -189,56 +237,44 @@ $userId = $_SESSION['user_id'];
                                 />
                             </div>
                         </div>
+                        <div class="mt-5">
+                            <button
+                                 type="submit"
+                                class="btn btn-primary px-5"
+                                >Ingresar
+                            </button>
+                        </div>
+
+                        </form>
                     </div>
+
+                     <!-- Datos del cultivo a modificar -->
                     <div class="tab-pane fade" id="v-pills-crops" role="tabpanel" aria-labelledby="v-pills-crops-tab" tabindex="0">
+                        <form class="pt-4" method="post" action="../../backend/updateCropsData.php">
                         <div class="col-lg-6 col-md-8 col-sm-12">
                             
-                            <!-- Tendríamos que verificar si tiene uno o dos cultivos y replicar la info para el cultivo 2 -->
-                            <h5>Cultivo [Nombre]</h5>
+                            <h5>Cultivo:</h5>
                             <!-- Provincia -->
                             <div class="form-group mt-2">
                                 <select
                                     class="form-select"
                                     name="province"
                                     id="selectProvince"
+                                    disabled
                                 >
-                                    <option selected disabled>Provincia</option>
-                                    <?php
-                                            include "../../../backend/conection.php";
-                                            $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos");
-                                            $provincias = pg_fetch_all($provincias);
-                                            mostrarProvincias($provincias);
-
-                                        function mostrarProvincias($provincias){
-                                            if ($provincias !== false) {
-                                                foreach ($provincias as $fila) {
-                                                    $provincia_nombre = $fila['provincia_nombre'];
-                                                    echo "<option value=\"$provincia_nombre\">$provincia_nombre</option>";
-                                                }
-                                            }
-                                        }
-                                        ?>
+                                    <option selected><?php
+                                        $flag=1;
+                                        getCrops($conectado,$userId,$flag);
+                                    ?></option>
                                 </select>
                             </div>
                             <!-- Cultivo -->
                             <div class="form-group mt-2">
-                                <select class="form-select" name="seed" id="selectSeed" required>
-                                    <option selected disabled>Cultivo</option>
-                                    <?php
-                                            include "../../../backend/conection.php";
-                                            $cultivos = pg_query($conectado,"SELECT DISTINCT cultivo_nombre FROM cultivos");
-                                            $cultivos = pg_fetch_all($cultivos);
-                                            mostrarCultivos($cultivos);
-
-                                        function mostrarCultivos($cultivos){
-                                            if ($cultivos !== false) {
-                                                foreach ($cultivos as $fila) {
-                                                    $cultivo_nombre = $fila['cultivo_nombre'];
-                                                    echo "<option value=\"$cultivo_nombre\">$cultivo_nombre</option>";
-                                                }
-                                            }
-                                        }
-                                        ?>
+                                <select class="form-select" name="seed" id="selectSeed" disabled>
+                                <option selected><?php
+                                        $flag=2;
+                                        getCrops($conectado,$userId,$flag);
+                                    ?></option>
                                 </select>
                             </div>
                             <!-- Intervalo de riego -->
@@ -246,7 +282,7 @@ $userId = $_SESSION['user_id'];
                                 <div class="form-group col-11">
                                     <input
                                         type="number"
-                                        name="interval"
+                                        name="newInterval"
                                         class="form-control"
                                         id="exampleInputUsername1"
                                         placeholder="Intervalo de riego"
@@ -282,7 +318,7 @@ $userId = $_SESSION['user_id'];
                                 <div class="form-group col-11">
                                     <input
                                         type="number"
-                                        name="hectare"
+                                        name="newHectare"
                                         class="form-control"
                                         id="exampleInputUsername1"
                                         placeholder="Hectareas cultivadas"
@@ -321,6 +357,12 @@ $userId = $_SESSION['user_id'];
                                         name="seedtime"
                                         class="form-control"
                                         id="inputDate"
+                                        value="<?php
+                                        $flag=0;
+                                        getCrops($conectado,$userId,$flag); 
+                                        ?>"
+                                        disabled
+
                                     />
                                     </div>
                                     <button
@@ -349,7 +391,17 @@ $userId = $_SESSION['user_id'];
                                     </button>
                             </div>
                         </div>
+                        <div class="mt-5">
+                            <button
+                                 type="submit"
+                                class="btn btn-primary px-5"
+                                >Ingresar
+                            </button>
+                        </div>
+                        
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>

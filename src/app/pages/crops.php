@@ -76,7 +76,9 @@ $userId = $_SESSION['user_id'];
           <li class="nav-item">
             <a href="#" class="nav-link d-flex">
               <div class="nav-profile-image">
-                <img src="../../assets/images/user-profile.png" alt="img--profile">
+                <?php
+                include '../../backend/getImage.php'
+                ?>
                 <!-- <span class="login-status online"></span> -->
                 <!--change to offline or busy as needed-->
               </div>

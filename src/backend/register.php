@@ -31,7 +31,7 @@
         ## BUG
         ## Cuando se encuentra un usuario similar, se deberia mostrar un modal que indique las coincidencias
     }else{
-          // Subida de image
+          // Subida de imagen
           if(isset($_FILES['image'])) {
             $newImage = $_FILES['image'];
             $nombreArchivo = $newImage['name'];
@@ -50,13 +50,7 @@
                 // Ruta de destino personalizada
                 $rutaDestino = '../assets/profile-images/' . $nombreArchivo;
                 move_uploaded_file($archivoTemporal, $rutaDestino);
-                // if (move_uploaded_file($archivoTemporal, $rutaDestino)) {
-                
-                //     // Guardar la direccion en la BD
-                //     $pi = pg_query($conectado,"INSERT INTO clientes(image_location) VALUES('$rutaDestino') WHERE (id = '$userID')");
-                // } else {
-                //     echo "Error al mover la imagen a la carpeta de destino.";
-                // }
+               
             }
         } else {
             echo "No se ha seleccionado ninguna imagen.";
@@ -66,14 +60,11 @@
         $userID = pg_fetch_result($pg, 0, 0);
         $pd = pg_query($conectado, "INSERT INTO cultivos_clientes (provincia,tipo_cultivo,intervalo,hectarea,fecha,fk_clientes) VALUES ('$newProvince','$newSeed','$newInterval','$newHectare','$newDate','$userID')");
 
-     
-
         $_SESSION['user_id'] = $userID;
         header('Location: http://localhost/agrocommerce/src/app/pages/layout.php');
         exit();
-
-        ## BUG
-        ## Cuando se registra correctamente, se deberia mostrar un modal que indique el exito en la creacion y luego redireccionar
     
     }
+
+
 ?>
