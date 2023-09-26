@@ -25,6 +25,7 @@ if($data && $newUSer!=NULL && $data['usuario']!=$newUSer){
     header('Location: http://localhost/agrocommerce/src/app/pages/layout.php');
 }else{
   header('Location: http://localhost/agrocommerce/src/app/pages/layout.php');
+  // echo("alert(\"Error\");");
 }
 
 // Validacion y cambio de la clave
