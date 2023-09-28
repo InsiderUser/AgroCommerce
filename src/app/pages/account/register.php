@@ -33,10 +33,11 @@
           </p>
 
           <form
-            class="pt-2"
+            class="pt-2 needs-validation"
             method="post"
             action="../../../backend/register.php"
             enctype="multipart/form-data"
+            novalidate
           >
             <!-- Nombre de usuario -->
             <div class="form-group">
@@ -45,8 +46,13 @@
                 class="form-control"
                 name="newUser"
                 placeholder="Usuario"
+                minlength="4"
+                maxlength="15"
                 required
               />
+              <div class="invalid-feedback text-start">
+                Debe ingresar un usuario.
+              </div>
             </div>
             <!-- Email -->
             <div class="form-group mt-2">
@@ -58,11 +64,17 @@
                 placeholder="Email"
                 required
               />
+              <div class="invalid-feedback text-start">
+                Debe ingresar un email.
+              </div>
             </div>
             <!-- Img usuario -->
             <div class="d-flex mt-2">
               <div class="form-group col-11">
                 <input class="form-control" name="image" type="file" id="profile" placeholder="Imagen de perfil" accept="image/*" required>
+                <div class="invalid-feedback text-start">
+                  Debe ingresar una imagen.
+                </div>
               </div>
               <button
                 type="button"
@@ -94,6 +106,9 @@
                 placeholder="Contraseña"
                 required
               />
+              <div class="invalid-feedback text-start">
+                Debe ingresar una constraseña.
+              </div>
             </div>
             <hr />
             <!-- Provincia -->
@@ -142,6 +157,9 @@
                       }
                       ?>
               </select>
+              <div class="invalid-feedback text-start">
+                  Debe ingresar una provincia.
+              </div>
             </div>
             <div class="row mt-2">
               <!-- Intervalo de riego -->
@@ -155,6 +173,9 @@
                     placeholder="Intervalo de riego"
                     required
                   />
+                  <div class="invalid-feedback text-start">
+                    Debe ingresar el intervalo de riego.
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -192,6 +213,9 @@
                     placeholder="Hectareas cultivadas"
                     required
                   />
+                  <div class="invalid-feedback text-start">
+                    Debe ingresar el n° de hectareas cultivadas.
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -230,6 +254,9 @@
                     id="inputDate"
                     required
                   />
+                  <div class="invalid-feedback text-start">
+                    Debe ingresar la fecha de siembra.
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -286,6 +313,26 @@
       const tooltipList = [...tooltipTriggerList].map(
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
+    </script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
   </body>
 </html>

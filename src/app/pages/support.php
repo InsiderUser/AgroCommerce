@@ -177,18 +177,27 @@ $userId = $_SESSION['user_id'];
                     <div class="col-md-6 p-4">
                         <!--Formulario de mensaje-->
                         <h6>Enviar una consulta</h6>
-                        <form action="" method="post">
+                        <form class="needs-validation" action="" method="post" novalidate>
                             <div class="form-group">
-                                <input type="text" name="nombre" class="form-control" id="name" placeholder="Nombre">
+                                <input type="text" name="nombre" class="form-control" id="name" placeholder="Nombre" required>
+                                <div class="invalid-feedback text-start">
+                                  Debe ingresar el nombre.
+                                </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Email" required>
+                                <div class="invalid-feedback text-start">
+                                  Debe ingresar el email.
+                                </div>
                             </div>
                             <div class="form-group mt-3">
-                                <textarea name="mensaje" id="message" cols="30" rows="5" class="form-control" placeholder="Ingresar texto..."></textarea>
+                                <textarea name="mensaje" id="message" cols="30" rows="5" class="form-control" placeholder="Ingresar texto..." required></textarea>
+                                <div class="invalid-feedback text-start">
+                                  Debe ingresar el mensaje.
+                                </div>
                             </div>
                             <div class="mt-5 text-end">
-                                <button type="submit" class="btn btn-primary px-5" style="font-weight: 500;">Enviar</button>
+                                <button type="submit" class="btn btn-primary text-light px-5" style="font-weight: 500;">Enviar</button>
                             </div>
                         </form>
 
@@ -236,6 +245,26 @@ $userId = $_SESSION['user_id'];
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
   </body>
 </html>
