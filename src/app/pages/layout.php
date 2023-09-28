@@ -43,7 +43,7 @@
               </a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="../pages/settings.php"
                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                 data-bs-custom-class="custom-tooltip"
                 data-bs-title="Configuración"
@@ -128,14 +128,14 @@
       </div>
 
       <div class="main-panel p-5">
-      <div class="page-header">
-          <h4 class="page-title pb-4">Sobre mis cultivos</h4>
-          <!-- <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Tables</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-            </ol>
-          </nav> -->
+        <div class="page-header">
+            <h4 class="page-title pb-4">Sobre mis cultivos</h4>
+            <!-- <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+              </ol>
+            </nav> -->
         </div>
         <div class="row">
           <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
@@ -192,7 +192,6 @@
                 <?php
                 include '../../backend/validateSession.php';
                 ?>
-
             </div>
           </div>
         </div>
@@ -200,7 +199,7 @@
     </div>
 
     <!-- Modal: agregar cultivo-->
-    <div class="modal modal-lg fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
+    <div class="modal fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -210,9 +209,10 @@
           <div class="modal-body">
 
           <form
-                  class="pt-3"
+                  class="pt-3 needs-validation"
                   method="post"
                   action="../../backend/newFarm.php"
+                  novalidate
                 >
                   <!-- Provincia -->
                   <div class="form-group">
@@ -242,6 +242,9 @@
                       }
                       ?>
                     </select>
+                    <div class="invalid-feedback text-start">
+                      Debe seleccionar la provincia.
+                    </div>
                   </div>
                   <!-- Cultivo -->
                   <div class="form-group mt-3">
@@ -265,29 +268,43 @@
                       ?>
 
                     </select>
+                    <div class="invalid-feedback text-start">
+                      Debe seleccionar el cultivo.
+                    </div>
                   </div>
-                  <!-- Intervalo de riego -->
-                  <div class="form-group mt-3">
-                    <input
-                      required
-                      type="number"
-                      name="interval"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Intervalo de riego"
-                    />
-                    <!-- Podriamos agg una i con info del tema tipo modal -->
-                  </div>
-                  <!-- Numero de hectareas -->
-                  <div class="form-group  mt-3">
-                    <input
-                      required
-                      type="number"
-                      name="hectare"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Hectareas cultivadas"
-                    />
+                  <div class="row mt-3">
+                    <div class="col-md-6">
+                      <!-- Intervalo de riego -->
+                      <div class="form-group">
+                        <input
+                          required
+                          type="number"
+                          name="interval"
+                          class="form-control"
+                          id="exampleInputUsername1"
+                          placeholder="Intervalo de riego"
+                        />
+                        <div class="invalid-feedback text-start">
+                          Debe ingresar el intervalo de riego.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <!-- Numero de hectareas -->
+                      <div class="form-group">
+                        <input
+                          required
+                          type="number"
+                          name="hectare"
+                          class="form-control"
+                          id="exampleInputUsername1"
+                          placeholder="Hectareas cultivadas"
+                        />
+                        <div class="invalid-feedback text-start">
+                          Debe ingresar el n° de hectareas cultivadas.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <!-- Fecha de siembra -->
                   <div class="form-group mt-3">
@@ -299,9 +316,12 @@
                       id="exampleInputUsername1"
                       placeholder="Fecha de siembra"
                     />
+                    <div class="invalid-feedback text-start">
+                      Debe ingresar la fecha de siembra.
+                    </div>
                   </div>
                   <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <button type="submit" class="btn btn-primary text-light">Guardar cambios</button>
           </div>
                 </form>
           </div>
@@ -325,6 +345,26 @@
       myModal.addEventListener('shown.bs.modal', () => {
         myInput.focus()
       })
+    </script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
   </body>
 </html>

@@ -41,7 +41,7 @@ $userId = $_SESSION['user_id'];
               </a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="../pages/settings.php"
                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                 data-bs-custom-class="custom-tooltip"
                 data-bs-title="Configuración"
@@ -75,7 +75,10 @@ $userId = $_SESSION['user_id'];
           <li class="nav-item">
             <a href="#" class="nav-link d-flex">
               <div class="nav-profile-image">
-                <img src="../../assets/images/user-profile.png" alt="img--profile">
+                <?php
+                include '../../backend/getImage.php'
+                ?>
+                
                 <!-- <span class="login-status online"></span> -->
                 <!--change to offline or busy as needed-->
               </div>

@@ -32,10 +32,10 @@
           </p>
 
           <form
-            class="pt-2"
+            class="pt-2 needs-validation"
             method="post"
             action="../../../backend/recovery.php"
-          >
+            novalidate>
             <!-- Email -->
             <div class="form-group">
               <input
@@ -46,6 +46,9 @@
                 placeholder="Email"
                 required
               />
+              <div class="invalid-feedback text-start">
+                Debe ingresar el email.
+              </div>
             </div>
             <div class="mt-5">
               <button type="submit" class="btn btn-primary px-5">
@@ -78,5 +81,25 @@
       integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
       crossorigin="anonymous"
     ></script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
+    </script>
   </body>
 </html>

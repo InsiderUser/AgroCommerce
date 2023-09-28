@@ -33,10 +33,11 @@
           </p>
 
           <form
-            class="pt-2"
+            class="pt-2 needs-validation"
             method="post"
             action="../../../backend/register.php"
             enctype="multipart/form-data"
+            novalidate
           >
             <!-- Nombre de usuario -->
             <div class="form-group">
@@ -45,8 +46,13 @@
                 class="form-control"
                 name="newUser"
                 placeholder="Usuario"
+                minlength="4"
+                maxlength="15"
                 required
               />
+              <div class="invalid-feedback text-start">
+                Debe ingresar un usuario.
+              </div>
             </div>
             <!-- Email -->
             <div class="form-group mt-2">
@@ -58,6 +64,36 @@
                 placeholder="Email"
                 required
               />
+              <div class="invalid-feedback text-start">
+                Debe ingresar un email.
+              </div>
+            </div>
+            <!-- Img usuario -->
+            <div class="d-flex mt-2">
+              <div class="form-group col-11">
+                <input class="form-control" name="image" type="file" id="profile" placeholder="Imagen de perfil" accept="image/*" required>
+                <div class="invalid-feedback text-start">
+                  Debe ingresar una imagen.
+                </div>
+              </div>
+              <button
+                type="button"
+                class="btn"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="Seleccione una imagen para su perfil">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-info-circle"
+                  viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                </svg>
+              </button>
             </div>
             <!-- Contrasena -->
             <div class="form-group mt-2">
@@ -70,17 +106,9 @@
                 placeholder="Contraseña"
                 required
               />
-            </div>
-            <!-- Imagen de perfil -->
-            <div class="form-group mt-2">
-              <input
-               type="file"
-                name="image"
-                class="form-control"
-                id="profile"
-                accept=".png, .jpg, .jpeg" 
-                required
-              />
+              <div class="invalid-feedback text-start">
+                Debe ingresar una constraseña.
+              </div>
             </div>
             <hr />
             <!-- Provincia -->
@@ -129,10 +157,13 @@
                       }
                       ?>
               </select>
+              <div class="invalid-feedback text-start">
+                  Debe ingresar una provincia.
+              </div>
             </div>
             <div class="row mt-2">
+              <!-- Intervalo de riego -->
               <div class="col-md-6 d-flex">
-                <!-- Intervalo de riego -->
                 <div class="form-group">
                   <input
                     type="number"
@@ -142,7 +173,9 @@
                     placeholder="Intervalo de riego"
                     required
                   />
-                  <!-- Podriamos agg una i con info del tema tipo modal -->
+                  <div class="invalid-feedback text-start">
+                    Debe ingresar el intervalo de riego.
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -169,8 +202,8 @@
                   </svg>
                 </button>
               </div>
+              <!-- Numero de hectareas -->
               <div class="col-md-6 d-flex">
-                <!-- Numero de hectareas -->
                 <div class="form-group">
                   <input
                     type="number"
@@ -180,6 +213,9 @@
                     placeholder="Hectareas cultivadas"
                     required
                   />
+                  <div class="invalid-feedback text-start">
+                    Debe ingresar el n° de hectareas cultivadas.
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -207,9 +243,9 @@
                 </button>
               </div>
             </div>
+            <!-- Fecha de siembra -->
             <div class="row mt-2">
               <div class="d-flex">
-                <!-- Fecha de siembra -->
                 <div class="form-group col-11">
                   <input
                     type="date"
@@ -218,6 +254,9 @@
                     id="inputDate"
                     required
                   />
+                  <div class="invalid-feedback text-start">
+                    Debe ingresar la fecha de siembra.
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -274,6 +313,26 @@
       const tooltipList = [...tooltipTriggerList].map(
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
+    </script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
   </body>
 </html>
