@@ -217,7 +217,7 @@ function getCrops($conectado, $userId,$flag){
                                     class="form-control"
                                     id="inputPassword0"
                                     placeholder="Actual contraseña"
-                                    required
+                                    
                                     />
                                     <div class="invalid-feedback text-start">
                                         Debe ingresar la actual contraseña.
@@ -231,7 +231,7 @@ function getCrops($conectado, $userId,$flag){
                                     class="form-control"
                                     id="inputPassword1"
                                     placeholder="Nueva contraseña"
-                                    required
+                                    
                                     />
                                     <div class="invalid-feedback text-start">
                                         Debe ingresar la nueva contraseña.
@@ -245,7 +245,7 @@ function getCrops($conectado, $userId,$flag){
                                     class="form-control"
                                     id="inputPassword2"
                                     placeholder="Confirmar contraseña"
-                                    required
+                                    
                                     />
                                     <div class="invalid-feedback text-start">
                                         Debe ingresar la confirmación de la contraseña.
