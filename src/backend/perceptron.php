@@ -5,9 +5,9 @@
         $fila = pg_fetch_assoc($perceptron); // Obtiene la fila como un arreglo asociativo
         if ($fila) {
             // Accede a los datos individuales en el arreglo asociativo
-            $nombre_de_la_columna = $fila['valores'];
+            $valorPerceptron = $fila['valores'];
             // Muestra los datos o haz lo que necesites con ellos
-            echo "Resultado: " .$nombre_de_la_columna;
+            echo $valorPerceptron;
         } else {
             echo "No se encontraron resultados.";
         }

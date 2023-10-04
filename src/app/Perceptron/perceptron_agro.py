@@ -5,7 +5,7 @@ import psycopg2
 
 # Configura los detalles de la conexión
 host = "localhost"
-port = "5432"
+port = "5050"
 database = "agrocommercedb"
 user = "postgres"
 password = "postgres"
