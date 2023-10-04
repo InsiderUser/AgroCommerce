@@ -161,237 +161,168 @@ function getCrops($conectado, $userId,$flag){
             <div class="row">
                 <div class="d-flex align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <button class="nav-link active" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab" aria-controls="v-pills-account" aria-selected="true">Cuenta</button>
-                    <button class="nav-link" id="v-pills-crops-tab" data-bs-toggle="pill" data-bs-target="#v-pills-crops" type="button" role="tab" aria-controls="v-pills-crops" aria-selected="false">Cultivos</button>
+                        <button class="nav-link active" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab" aria-controls="v-pills-account" aria-selected="true">Cuenta</button>
+                        <button class="nav-link" id="v-pills-crops-tab" data-bs-toggle="pill" data-bs-target="#v-pills-crops" type="button" role="tab" aria-controls="v-pills-crops" aria-selected="false">Cultivos</button>
+                        <button class="nav-link" id="v-pills-ground-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ground" type="button" role="tab" aria-controls="v-pills-ground" aria-selected="false">Suelo</button>
                     </div>
                     <div class="border-start h-100"></div>
                     <div class="tab-content px-5 w-100" id="v-pills-tabContent">
-                    <!-- Contenido -->
-
-
-                    <!-- Datos del usuario a modificar -->
-                    <div id="myModal" style="display: none;">
-                        <div class="modal-content">
-                            <!-- Contenido del modal aquí -->
-                            <p>¡Formulario enviado con éxito!</p>
+                        <!-- Contenido -->
+                        <!-- Datos del usuario a modificar -->
+                        <div id="myModal" style="display: none;">
+                            <div class="modal-content">
+                                <!-- Contenido del modal aquí -->
+                                <p>¡Formulario enviado con éxito!</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="tab-pane fade show active" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab" tabindex="0">
-                        <form class="pt-4 needs-validation" method="post" action="../../backend/updatePersonalData.php" enctype="multipart/form-data" novalidate>
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <!-- Nombre de usuario -->
-                                <div class="form-group">
-                                    <input
-                                    type="text"
-                                    class="form-control"
-                                    name="newUser"
-                                    value="<?php getUser($conectado,$userId); ?>"
-                                    />
-                                </div>
-                                <!-- Email -->
-                                <div class="form-group mt-2">
-                                    <input
-                                    type="email"
-                                    name="email"
-                                    class="form-control"
-                                    id="inputEmail"
-                                    placeholder="<?php getEmail($conectado,$userId); ?>"
-                                    disabled
-                                    />
-                                </div>
-                                <!-- Img usuario -->
-                                <div class="form-group mt-4">
-                                    <label for="userImg" class="form-label">Seleccione una imagen para su perfil</label>
-                                    <input class="form-control" name="newImage" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
-                                </div>
+                        <div class="tab-pane fade show active" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab" tabindex="0">
+                            <form class="pt-4 needs-validation" method="post" action="../../backend/updatePersonalData.php" enctype="multipart/form-data" novalidate>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <!-- Nombre de usuario -->
+                                    <div class="form-group">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        name="newUser"
+                                        value="<?php getUser($conectado,$userId); ?>"
+                                        />
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="form-group mt-2">
+                                        <input
+                                        type="email"
+                                        name="email"
+                                        class="form-control"
+                                        id="inputEmail"
+                                        placeholder="<?php getEmail($conectado,$userId); ?>"
+                                        disabled
+                                        />
+                                    </div>
+                                    <!-- Img usuario -->
+                                    <div class="form-group mt-4">
+                                        <label for="userImg" class="form-label">Seleccione una imagen para su perfil</label>
+                                        <input class="form-control" name="newImage" type="file" id="userImg" placeholder="Imagen de perfil" accept="image/*">
+                                    </div>
 
-                                <hr>
-                                <!-- Contrasena -->
-                                <h5>Cambiar contraseña</h5>
-                                <div class="form-group mt-2">
-                                    <input
-                                    type="password"
-                                    name="actualPassword"
-                                    minlength="7"
-                                    class="form-control"
-                                    id="inputPassword0"
-                                    placeholder="Actual contraseña"
-                                    required
-                                    />
-                                    <div class="invalid-feedback text-start">
-                                        Debe ingresar la actual contraseña.
+                                    <hr>
+                                    <!-- Contrasena -->
+                                    <h5>Cambiar contraseña</h5>
+                                    <div class="form-group mt-2">
+                                        <input
+                                        type="password"
+                                        name="actualPassword"
+                                        minlength="7"
+                                        class="form-control"
+                                        id="inputPassword0"
+                                        placeholder="Actual contraseña"
+                                        required
+                                        />
+                                        <div class="invalid-feedback text-start">
+                                            Debe ingresar la actual contraseña.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <input
+                                        type="password"
+                                        name="newPassword"
+                                        minlength="7"
+                                        class="form-control"
+                                        id="inputPassword1"
+                                        placeholder="Nueva contraseña"
+                                        required
+                                        />
+                                        <div class="invalid-feedback text-start">
+                                            Debe ingresar la nueva contraseña.
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        minlength="7"
+                                        class="form-control"
+                                        id="inputPassword2"
+                                        placeholder="Confirmar contraseña"
+                                        required
+                                        />
+                                        <div class="invalid-feedback text-start">
+                                            Debe ingresar la confirmación de la contraseña.
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-2">
-                                    <input
-                                    type="password"
-                                    name="newPassword"
-                                    minlength="7"
-                                    class="form-control"
-                                    id="inputPassword1"
-                                    placeholder="Nueva contraseña"
-                                    required
-                                    />
-                                    <div class="invalid-feedback text-start">
-                                        Debe ingresar la nueva contraseña.
-                                    </div>
+                                <div class="mt-5">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary text-light px-5"
+                                        >Guardar cambios
+                                    </button>
                                 </div>
-                                <div class="form-group mt-2">
-                                    <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    minlength="7"
-                                    class="form-control"
-                                    id="inputPassword2"
-                                    placeholder="Confirmar contraseña"
-                                    required
-                                    />
-                                    <div class="invalid-feedback text-start">
-                                        Debe ingresar la confirmación de la contraseña.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-5">
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary text-light px-5"
-                                    >Guardar cambios
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
 
-                     <!-- Datos del cultivo a modificar -->
-                    <div class="tab-pane fade" id="v-pills-crops" role="tabpanel" aria-labelledby="v-pills-crops-tab" tabindex="0">
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-crop1-tab" data-bs-toggle="tab" data-bs-target="#nav-crop1" type="button" role="tab" aria-controls="nav-crop1" aria-selected="true">Cultivo 1</button>
-                                <button class="nav-link" id="nav-crop2-tab" data-bs-toggle="tab" data-bs-target="#nav-crop2" type="button" role="tab" aria-controls="nav-crop2" aria-selected="false">Cultivo 2</button>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-crop1" role="tabpanel" aria-labelledby="nav-crop1-tab" tabindex="0">
-                                <form class="pt-4 needs-validation" method="post" action="../../backend/updateCropsData.php" novalidate>
-                                    <div class="col-lg-6 col-md-8 col-sm-12">
-                                        <!-- Provincia -->
-                                        <div class="form-group mt-2">
-                                            <select
-                                                class="form-select"
-                                                name="province"
-                                                id="selectProvince"
-                                                disabled
-                                            >
-                                                <option selected><?php
-                                                    $flag=1;
-                                                    getCrops($conectado,$userId,$flag);
-                                                ?></option>
-                                            </select>
-                                        </div>
-                                        <!-- Cultivo -->
-                                        <div class="form-group mt-2">
-                                            <select class="form-select" name="seed" id="selectSeed" disabled>
-                                            <option selected><?php
-                                                    $flag=2;
-                                                    getCrops($conectado,$userId,$flag);
-                                                ?></option>
-                                            </select>
-                                        </div>
-                                        <!-- Intervalo de riego -->
-                                        <div class="d-flex mt-2">
-                                            <div class="form-group col-11">
-                                                <input
-                                                    type="number"
-                                                    name="newInterval"
-                                                    class="form-control"
-                                                    id="exampleInputUsername1"
-                                                    placeholder="Intervalo de riego"
-                                                    required
-                                                />
-                                                <div class="invalid-feedback text-start">
-                                                    Debe ingresar el intervalo de riego.
-                                                </div>
-                                            </div>
-                                            <button
-                                            type="button"
-                                            class="btn"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="right"
-                                            data-bs-custom-class="custom-tooltip"
-                                            data-bs-title="Ingrese cada cuantas horas debe regar su cultivo, para recordarle."
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    class="bi bi-info-circle"
-                                                    viewBox="0 0 16 16"
-                                                >
-                                                    <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                                    ></path>
-                                                    <path
-                                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                                    ></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <!-- Numero de hectareas -->
-                                        <div class="d-flex mt-2">
-                                            <div class="form-group col-11">
-                                                <input
-                                                    type="number"
-                                                    name="newHectare"
-                                                    class="form-control"
-                                                    id="exampleInputUsername1"
-                                                    placeholder="Hectareas cultivadas"
-                                                    required
-                                                />
-                                                <div class="invalid-feedback text-start">
-                                                    Debe ingresar el n° de hectareas cultivadas.
-                                                </div>
-                                            </div>
-                                            <button
-                                            type="button"
-                                            class="btn"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="right"
-                                            data-bs-custom-class="custom-tooltip"
-                                            data-bs-title="Ingrese el número de hectareas que tiene cultivadas actualmente o que planea cultivar."
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    class="bi bi-info-circle"
-                                                    viewBox="0 0 16 16"
-                                                >
-                                                    <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                                    ></path>
-                                                    <path
-                                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                                    ></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <!-- Fecha de siembra -->
-                                        <div class="d-flex mt-2">
-                                            <div class="form-group col-11">
-                                                <input
-                                                    type="date"
-                                                    name="seedtime"
-                                                    class="form-control"
-                                                    id="inputDate"
-                                                    value="<?php
-                                                    $flag=0;
-                                                    getCrops($conectado,$userId,$flag); 
-                                                    ?>"
+                        <!-- Datos del cultivo a modificar -->
+                        <div class="tab-pane fade" id="v-pills-crops" role="tabpanel" aria-labelledby="v-pills-crops-tab" tabindex="0">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-crop1-tab" data-bs-toggle="tab" data-bs-target="#nav-crop1" type="button" role="tab" aria-controls="nav-crop1" aria-selected="true">Cultivo N° 1</button>
+                                    <button class="nav-link" id="nav-crop2-tab" data-bs-toggle="tab" data-bs-target="#nav-crop2" type="button" role="tab" aria-controls="nav-crop2" aria-selected="false">Cultivo N° 2</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-crop1" role="tabpanel" aria-labelledby="nav-crop1-tab" tabindex="0">
+                                    <div class="d-flex justify-content-between my-4">
+                                        <h5 class="text-capitalize"><?php
+                                            $flag=2;
+                                            getCrops($conectado,$userId,$flag);
+                                        ?></h5>
+                                        <button class="btn btn-danger" type="button" id="deleteCrop">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                                            </svg> 
+                                            Eliminar
+                                        </button>
+                                    </div>
+                                    <form class="needs-validation" method="post" action="../../backend/updateCropsData.php" novalidate>
+                                        <div class="col-lg-6 col-md-8 col-sm-12">
+                                            <!-- Provincia -->
+                                            <div class="form-group mt-2">
+                                                <select
+                                                    class="form-select"
+                                                    name="province"
+                                                    id="selectProvince"
                                                     disabled
-
-                                                />
+                                                >
+                                                    <option selected><?php
+                                                        $flag=1;
+                                                        getCrops($conectado,$userId,$flag);
+                                                    ?></option>
+                                                </select>
+                                            </div>
+                                            <!-- Cultivo -->
+                                            <div class="form-group mt-2">
+                                                <select class="form-select" name="seed" id="selectSeed" disabled>
+                                                <option selected><?php
+                                                        $flag=2;
+                                                        getCrops($conectado,$userId,$flag);
+                                                    ?></option>
+                                                </select>
+                                            </div>
+                                            <!-- Intervalo de riego -->
+                                            <div class="d-flex mt-2">
+                                                <div class="form-group col-11">
+                                                    <input
+                                                        type="number"
+                                                        name="newInterval"
+                                                        class="form-control"
+                                                        id="exampleInputUsername1"
+                                                        placeholder="Intervalo de riego"
+                                                        required
+                                                    />
+                                                    <div class="invalid-feedback text-start">
+                                                        Debe ingresar el intervalo de riego.
+                                                    </div>
                                                 </div>
                                                 <button
                                                 type="button"
@@ -399,7 +330,7 @@ function getCrops($conectado, $userId,$flag){
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
                                                 data-bs-custom-class="custom-tooltip"
-                                                data-bs-title="Ingrese la fecha de siempre de su cultivo."
+                                                data-bs-title="Ingrese cada cuantas horas debe regar su cultivo, para recordarle."
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -417,138 +348,21 @@ function getCrops($conectado, $userId,$flag){
                                                         ></path>
                                                     </svg>
                                                 </button>
-                                        </div>
-                                    </div>
-                                    <div class="mt-5">
-                                        <button
-                                            type="submit"
-                                            class="btn btn-primary text-light px-5"
-                                            >Guardar
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="nav-crop2" role="tabpanel" aria-labelledby="nav-crop2-tab" tabindex="0">
-                                <form class="pt-4 needs-validation" method="post" action="../../backend/updateCropsData.php" novalidate>
-                                    <div class="col-lg-6 col-md-8 col-sm-12">
-                                        <!-- Provincia -->
-                                        <div class="form-group mt-2">
-                                            <select
-                                                class="form-select"
-                                                name="province"
-                                                id="selectProvince"
-                                                disabled
-                                            >
-                                                <option selected><?php
-                                                    $flag=1;
-                                                    getCrops($conectado,$userId,$flag);
-                                                ?></option>
-                                            </select>
-                                        </div>
-                                        <!-- Cultivo -->
-                                        <div class="form-group mt-2">
-                                            <select class="form-select" name="seed" id="selectSeed" disabled>
-                                            <option selected><?php
-                                                    $flag=2;
-                                                    getCrops($conectado,$userId,$flag);
-                                                ?></option>
-                                            </select>
-                                        </div>
-                                        <!-- Intervalo de riego -->
-                                        <div class="d-flex mt-2">
-                                            <div class="form-group col-11">
-                                                <input
-                                                    type="number"
-                                                    name="newInterval"
-                                                    class="form-control"
-                                                    id="exampleInputUsername1"
-                                                    placeholder="Intervalo de riego"
-                                                    required
-                                                />
-                                                <div class="invalid-feedback text-start">
-                                                    Debe ingresar el intervalo de riego.
-                                                </div>
                                             </div>
-                                            <button
-                                            type="button"
-                                            class="btn"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="right"
-                                            data-bs-custom-class="custom-tooltip"
-                                            data-bs-title="Ingrese cada cuantas horas debe regar su cultivo, para recordarle."
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    class="bi bi-info-circle"
-                                                    viewBox="0 0 16 16"
-                                                >
-                                                    <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                                    ></path>
-                                                    <path
-                                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                                    ></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <!-- Numero de hectareas -->
-                                        <div class="d-flex mt-2">
-                                            <div class="form-group col-11">
-                                                <input
-                                                    type="number"
-                                                    name="newHectare"
-                                                    class="form-control"
-                                                    id="exampleInputUsername1"
-                                                    placeholder="Hectareas cultivadas"
-                                                    required
-                                                />
-                                                <div class="invalid-feedback text-start">
-                                                    Debe ingresar el n° de hectareas cultivadas.
-                                                </div>
-                                            </div>
-                                            <button
-                                            type="button"
-                                            class="btn"
-                                            data-bs-toggle="tooltip"
-                                            data-bs-placement="right"
-                                            data-bs-custom-class="custom-tooltip"
-                                            data-bs-title="Ingrese el número de hectareas que tiene cultivadas actualmente o que planea cultivar."
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    fill="currentColor"
-                                                    class="bi bi-info-circle"
-                                                    viewBox="0 0 16 16"
-                                                >
-                                                    <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                                    ></path>
-                                                    <path
-                                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                                                    ></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <!-- Fecha de siembra -->
-                                        <div class="d-flex mt-2">
-                                            <div class="form-group col-11">
-                                                <input
-                                                    type="date"
-                                                    name="seedtime"
-                                                    class="form-control"
-                                                    id="inputDate"
-                                                    value="<?php
-                                                    $flag=0;
-                                                    getCrops($conectado,$userId,$flag); 
-                                                    ?>"
-                                                    disabled
-
-                                                />
+                                            <!-- Numero de hectareas -->
+                                            <div class="d-flex mt-2">
+                                                <div class="form-group col-11">
+                                                    <input
+                                                        type="number"
+                                                        name="newHectare"
+                                                        class="form-control"
+                                                        id="exampleInputUsername1"
+                                                        placeholder="Hectareas cultivadas"
+                                                        required
+                                                    />
+                                                    <div class="invalid-feedback text-start">
+                                                        Debe ingresar el n° de hectareas cultivadas.
+                                                    </div>
                                                 </div>
                                                 <button
                                                 type="button"
@@ -556,7 +370,7 @@ function getCrops($conectado, $userId,$flag){
                                                 data-bs-toggle="tooltip"
                                                 data-bs-placement="right"
                                                 data-bs-custom-class="custom-tooltip"
-                                                data-bs-title="Ingrese la fecha de siempre de su cultivo."
+                                                data-bs-title="Ingrese el número de hectareas que tiene cultivadas actualmente o que planea cultivar."
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -574,19 +388,271 @@ function getCrops($conectado, $userId,$flag){
                                                         ></path>
                                                     </svg>
                                                 </button>
+                                            </div>
+                                            <!-- Fecha de siembra -->
+                                            <div class="d-flex mt-2">
+                                                <div class="form-group col-11">
+                                                    <input
+                                                        type="date"
+                                                        name="seedtime"
+                                                        class="form-control"
+                                                        id="inputDate"
+                                                        value="<?php
+                                                        $flag=0;
+                                                        getCrops($conectado,$userId,$flag); 
+                                                        ?>"
+                                                        disabled
+
+                                                    />
+                                                    </div>
+                                                    <button
+                                                    type="button"
+                                                    class="btn"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    data-bs-custom-class="custom-tooltip"
+                                                    data-bs-title="Ingrese la fecha de siempre de su cultivo."
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="16"
+                                                            height="16"
+                                                            fill="currentColor"
+                                                            class="bi bi-info-circle"
+                                                            viewBox="0 0 16 16"
+                                                        >
+                                                            <path
+                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                                            ></path>
+                                                            <path
+                                                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                                                            ></path>
+                                                        </svg>
+                                                    </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mt-5">
-                                        <button
-                                            type="submit"
-                                            class="btn btn-primary text-light px-5"
-                                            >Guardar
+                                        <div class="mt-5">
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary text-light px-5"
+                                                >Guardar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="nav-crop2" role="tabpanel" aria-labelledby="nav-crop2-tab" tabindex="0">
+                                    <div class="d-flex justify-content-between my-4">
+                                        <h5 class="text-capitalize"><?php
+                                            $flag=2;
+                                            getCrops($conectado,$userId,$flag);
+                                        ?></h5>
+                                        <button class="btn btn-danger" type="button" id="deleteCrop">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                                            </svg> 
+                                            Eliminar
                                         </button>
                                     </div>
-                                </form>
+                                    <form class="needs-validation" method="post" action="../../backend/updateCropsData.php" novalidate>
+                                        <div class="col-lg-6 col-md-8 col-sm-12">
+                                            <!-- Provincia -->
+                                            <div class="form-group mt-2">
+                                                <select
+                                                    class="form-select"
+                                                    name="province"
+                                                    id="selectProvince"
+                                                    disabled
+                                                >
+                                                    <option selected><?php
+                                                        $flag=1;
+                                                        getCrops($conectado,$userId,$flag);
+                                                    ?></option>
+                                                </select>
+                                            </div>
+                                            <!-- Cultivo -->
+                                            <div class="form-group mt-2">
+                                                <select class="form-select" name="seed" id="selectSeed" disabled>
+                                                <option selected><?php
+                                                        $flag=2;
+                                                        getCrops($conectado,$userId,$flag);
+                                                    ?></option>
+                                                </select>
+                                            </div>
+                                            <!-- Intervalo de riego -->
+                                            <div class="d-flex mt-2">
+                                                <div class="form-group col-11">
+                                                    <input
+                                                        type="number"
+                                                        name="newInterval"
+                                                        class="form-control"
+                                                        id="exampleInputUsername1"
+                                                        placeholder="Intervalo de riego"
+                                                        required
+                                                    />
+                                                    <div class="invalid-feedback text-start">
+                                                        Debe ingresar el intervalo de riego.
+                                                    </div>
+                                                </div>
+                                                <button
+                                                type="button"
+                                                class="btn"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Ingrese cada cuantas horas debe regar su cultivo, para recordarle."
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="16"
+                                                        height="16"
+                                                        fill="currentColor"
+                                                        class="bi bi-info-circle"
+                                                        viewBox="0 0 16 16"
+                                                    >
+                                                        <path
+                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                                        ></path>
+                                                        <path
+                                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                                                        ></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <!-- Numero de hectareas -->
+                                            <div class="d-flex mt-2">
+                                                <div class="form-group col-11">
+                                                    <input
+                                                        type="number"
+                                                        name="newHectare"
+                                                        class="form-control"
+                                                        id="exampleInputUsername1"
+                                                        placeholder="Hectareas cultivadas"
+                                                        required
+                                                    />
+                                                    <div class="invalid-feedback text-start">
+                                                        Debe ingresar el n° de hectareas cultivadas.
+                                                    </div>
+                                                </div>
+                                                <button
+                                                type="button"
+                                                class="btn"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="right"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Ingrese el número de hectareas que tiene cultivadas actualmente o que planea cultivar."
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="16"
+                                                        height="16"
+                                                        fill="currentColor"
+                                                        class="bi bi-info-circle"
+                                                        viewBox="0 0 16 16"
+                                                    >
+                                                        <path
+                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                                        ></path>
+                                                        <path
+                                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                                                        ></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <!-- Fecha de siembra -->
+                                            <div class="d-flex mt-2">
+                                                <div class="form-group col-11">
+                                                    <input
+                                                        type="date"
+                                                        name="seedtime"
+                                                        class="form-control"
+                                                        id="inputDate"
+                                                        value="<?php
+                                                        $flag=0;
+                                                        getCrops($conectado,$userId,$flag); 
+                                                        ?>"
+                                                        disabled
+
+                                                    />
+                                                    </div>
+                                                    <button
+                                                    type="button"
+                                                    class="btn"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    data-bs-custom-class="custom-tooltip"
+                                                    data-bs-title="Ingrese la fecha de siempre de su cultivo."
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="16"
+                                                            height="16"
+                                                            fill="currentColor"
+                                                            class="bi bi-info-circle"
+                                                            viewBox="0 0 16 16"
+                                                        >
+                                                            <path
+                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                                            ></path>
+                                                            <path
+                                                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                                                            ></path>
+                                                        </svg>
+                                                    </button>
+                                            </div>
+                                        </div>
+                                        <div class="mt-5">
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary text-light px-5"
+                                                >Guardar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <!-- Datos del suelo - nivel de ph y de humedad -->
+                        <div class="tab-pane fade" id="v-pills-ground" role="tabpanel" aria-labelledby="v-pills-ground-tab" tabindex="0">
+                            <form class="pt-4 needs-validation" method="" action="" novalidate>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <!-- Nivel de pH -->
+                                    <div class="form-group">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        name="nivelPh"
+                                        placeholder="Introduzca el nivel de pH"
+                                        required
+                                        />
+                                        <div class="invalid-feedback text-start">
+                                            Debe ingresar el nivel de pH.
+                                        </div>
+                                    </div>
+                                    <!-- Nivel de humedad -->
+                                    <div class="form-group mt-2">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        name="nivelHumedad"
+                                        placeholder="Introduzca el nivel de humedad"
+                                        required
+                                        />
+                                        <div class="invalid-feedback text-start">
+                                            Debe ingresar el nivel de humedad.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-5">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary text-light px-5"
+                                        >Guardar cambios
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                 </div>
             </div>
         </div>
