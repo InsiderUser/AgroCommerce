@@ -12,12 +12,12 @@
   }
   if ($counter<2) {
       //Si tiene un solo cultivo, se muestra el boton
-      echo("<button type=\"button\" class=\"btn btn-secondary w-auto\" id=\"buttonModal\" data-bs-toggle=\"modal\" data-bs-target=\"#modalNewCrop\" style=\"font-weight: 500;\">
+      echo("<button type=\"button\" class=\"btn btn-secondary text-light w-auto\" id=\"buttonModal\" data-bs-toggle=\"modal\" data-bs-target=\"#modalNewCrop\">
       Agregar cultivo
     </button>");
   }else{
       //Si tiene 2 cultivos, el boton pasa a 'hidden'
-      echo("<button type=\"button\" class=\"btn btn-secondary w-auto\" id=\"buttonModal\" data-bs-toggle=\"modal\" data-bs-target=\"#modalNewCrop\" style=\"font-weight:500;display:none;\">
+      echo("<button type=\"button\" class=\"btn btn-secondary text-light w-auto\" id=\"buttonModal\" data-bs-toggle=\"modal\" data-bs-target=\"#modalNewCrop\" style=\"display:none;\">
       Agregar cultivo
     </button>");
   }
