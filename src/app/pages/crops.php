@@ -76,7 +76,9 @@ $userId = $_SESSION['user_id'];
           <li class="nav-item">
             <a href="#" class="nav-link d-flex">
               <div class="nav-profile-image">
-                <img src="../../assets/images/user-profile.png" alt="img--profile">
+                <?php
+                include '../../backend/getImage.php'
+                ?>
                 <!-- <span class="login-status online"></span> -->
                 <!--change to offline or busy as needed-->
               </div>
@@ -142,8 +144,8 @@ $userId = $_SESSION['user_id'];
                     <div class="col-md-4">
                       <div class="form-group">
                           <label for="cultivo">Seleccione el cultivo:</label>
-                          <select class="form-select" name="cultivo">
-                            <option value="0" selected></option>
+                          <select class="form-select" name="cultivo" required>
+                            <option selected disabled>Cultivo</option>
                             <option value="centeno">Centeno</option>
                             <option value="girasol">Girasol</option>
                             <option value="mijo">Mijo</option>
@@ -154,9 +156,9 @@ $userId = $_SESSION['user_id'];
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-4">
-                      <label for="provincia">Ingrese la provincia:</label>
+                      <label for="provincia">Seleccione la provincia:</label>
                       <select class="form-select" name="provincia" id="selectProvince" required>
-                            <option selected disabled>Selecciones su provincia</option>
+                            <option selected disabled>Provincia</option>
                             <option value="Buenos Aires">BUENOS AIRES</option>
                             <option value="Catamarca">CATAMARCA</option>
                             <option value="Chaco">CHACO</option>
@@ -185,10 +187,10 @@ $userId = $_SESSION['user_id'];
                   <div class="row mt-2">
                     <div class="col-md-4">
                       <label for="cultivo">Ingrese el año:</label>
-                      <input class="form-control" type="number" name="anio" value="0">
+                      <input class="form-control" type="number" name="anio">
                     </div>
                   </div>
-                  <button class="btn btn-primary px-4 mt-4" type="submit" style="font-weight: 500;">Enviar</button>
+                  <button class="btn btn-primary text-light px-4 mt-4" type="submit" style="font-weight: 500;">Buscar</button>
                 </form>
                 <?php
                       
@@ -289,6 +291,26 @@ $userId = $_SESSION['user_id'];
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
   </body>
 </html>

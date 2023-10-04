@@ -15,3 +15,12 @@ Version 5.3.1
 
 # SASS
 Versión 1.66.1
+
+# Python
+Versión 3.11
+
+# Python: librería psycopg2
+pip install psycopg2
+
+# Python: librería Numpy
+pip install numpy

@@ -18,7 +18,25 @@
   </head>
 
   <body onload=consulta()>
-
+    <div>
+      <?php
+        include "../../backend/conection.php";
+        $perceptron = pg_query($conectado,'SELECT valores FROM perceptron WHERE id = 1;');
+        if ($perceptron) {
+          $fila = pg_fetch_assoc($perceptron); // Obtiene la fila como un arreglo asociativo
+          if ($fila) {
+              // Accede a los datos individuales en el arreglo asociativo
+              $nombre_de_la_columna = $fila['valores'];
+              // Muestra los datos o haz lo que necesites con ellos
+              echo $nombre_de_la_columna;
+          } else {
+              echo "No se encontraron resultados.";
+          }
+        } else {
+          echo "Error en la consulta: " . pg_last_error($conexion);
+        }
+      ?>
+    </div>
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
@@ -78,7 +96,9 @@
           <li class="nav-item">
             <a href="#" class="nav-link d-flex">
               <div class="nav-profile-image">
-                <img src="../../assets/images/user-profile.png" alt="img--profile">
+               <?php
+                include '../../backend/getImage.php'
+               ?>
                 <!-- <span class="login-status online"></span> -->
                 <!--change to offline or busy as needed-->
               </div>
@@ -190,13 +210,12 @@
                 <?php
                 include '../../backend/validateSession.php';
                 ?>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
- 
+
     <!-- Modal: agregar cultivo-->
     <div class="modal fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
       <div class="modal-dialog">
@@ -208,9 +227,10 @@
           <div class="modal-body">
 
           <form
-                  class="pt-3"
+                  class="pt-3 needs-validation"
                   method="post"
                   action="../../backend/newFarm.php"
+                  novalidate
                 >
                   <!-- Provincia -->
                   <div class="form-group">
@@ -240,6 +260,9 @@
                       }
                       ?>
                     </select>
+                    <div class="invalid-feedback text-start">
+                      Debe seleccionar la provincia.
+                    </div>
                   </div>
                   <!-- Cultivo -->
                   <div class="form-group mt-3">
@@ -261,8 +284,11 @@
                           }
                       }
                       ?>
-                     
+
                     </select>
+                    <div class="invalid-feedback text-start">
+                      Debe seleccionar el cultivo.
+                    </div>
                   </div>
                   <div class="row mt-3">
                     <div class="col-md-6">
@@ -276,6 +302,9 @@
                           id="exampleInputUsername1"
                           placeholder="Intervalo de riego"
                         />
+                        <div class="invalid-feedback text-start">
+                          Debe ingresar el intervalo de riego.
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -289,6 +318,9 @@
                           id="exampleInputUsername1"
                           placeholder="Hectareas cultivadas"
                         />
+                        <div class="invalid-feedback text-start">
+                          Debe ingresar el n° de hectareas cultivadas.
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -302,13 +334,16 @@
                       id="exampleInputUsername1"
                       placeholder="Fecha de siembra"
                     />
+                    <div class="invalid-feedback text-start">
+                      Debe ingresar la fecha de siembra.
+                    </div>
                   </div>
                   <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <button type="submit" class="btn btn-primary text-light">Guardar cambios</button>
           </div>
                 </form>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -328,6 +363,26 @@
       myModal.addEventListener('shown.bs.modal', () => {
         myInput.focus()
       })
+    </script>
+    <script>
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
     </script>
   </body>
 </html>
