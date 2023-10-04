@@ -18,7 +18,6 @@
   </head>
 
   <body onload=consulta()>
-
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
@@ -186,6 +185,8 @@
 
                       <?php
                         include "../../backend/conection.php";
+                        include "../../backend/perceptron.php";
+                        echo "<div style='display:none'>".$valorPerceptron."</div>";
                         $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos;");
                         $provincias = pg_fetch_all($provincias);
                         mostrarProvincias($provincias);
