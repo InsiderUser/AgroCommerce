@@ -1,6 +1,10 @@
 <?php
 session_start();
 $userId = $_SESSION['user_id'];
+// echo($userId);
+?>
+<?php
+  include "../../backend/hiddenCrops.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -133,24 +137,28 @@ $userId = $_SESSION['user_id'];
             <div class="card">
               <div class="card-body">
                 <ul class="nav nav-tabs"id="myTab" role="tablist">
+                    
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="centeno-tab" data-bs-toggle="tab" data-bs-target="#centeno-tab-pane" type="button" role="tab" aria-controls="centeno-tab-pane" aria-selected="true">Centeno</button>
+                    <button style="display:none;" class="nav-link active" id="centeno-tab" data-bs-toggle="tab" data-bs-target="#centeno-tab-pane" type="button" role="tab" aria-controls="centeno-tab-pane" aria-selected="true">Centeno</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="girasol-tab" data-bs-toggle="tab" data-bs-target="#girasol-tab-pane" type="button" role="tab" aria-controls="girasol-tab-pane" aria-selected="true">Girasol</button>
+                    <button style="display:none;" class="nav-link" id="girasol-tab" data-bs-toggle="tab" data-bs-target="#girasol-tab-pane" type="button" role="tab" aria-controls="girasol-tab-pane" aria-selected="true">Girasol</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link disabled" id="maiz-tab" data-bs-toggle="tab" data-bs-target="#maiz-tab-pane" type="button" role="tab" aria-controls="maiz-tab-pane" aria-selected="true">Maíz</button>
+                    <button style="display:none;" class="nav-link disabled" id="maiz-tab" data-bs-toggle="tab" data-bs-target="#maiz-tab-pane" type="button" role="tab" aria-controls="maiz-tab-pane" aria-selected="true">Maíz</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="mijo-tab" data-bs-toggle="tab" data-bs-target="#mijo-tab-pane" type="button" role="tab" aria-controls="mijo-tab-pane" aria-selected="true">Mijo</button>
+                    <button style="display:none;" class="nav-link" id="mijo-tab" data-bs-toggle="tab" data-bs-target="#mijo-tab-pane" type="button" role="tab" aria-controls="mijo-tab-pane" aria-selected="true">Mijo</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="soja-tab" data-bs-toggle="tab" data-bs-target="#soja-tab-pane" type="button" role="tab" aria-controls="soja-tab-pane" aria-selected="true">Soja</button>
+                    <button style="display:none;" class="nav-link" id="soja-tab" data-bs-toggle="tab" data-bs-target="#soja-tab-pane" type="button" role="tab" aria-controls="soja-tab-pane" aria-selected="true">Soja</button>
                   </li>
                 </ul>
-                <div class="tab-content pt-4 pb-2 px-2" id="myTabContent">
-                  <div class="tab-pane fade show active" id="centeno-tab-pane" role="tabpanel" aria-labelledby="centeno-tab" tabindex="0">
+
+  <!-- centeno has show and active -->
+                <div class="tab-content pt-4 pb-2 px-2" id="myTabContent" >
+
+                  <div class="tab-pane fade" id="centeno-tab-pane" role="tabpanel" aria-labelledby="centeno-tab" tabindex="0">
                     <h5>Plagas Comunes en Cultivos de Centeno (Secale cereale)</h5>
                     <br>
                     <h6>Plagas habitualmente asociadas</h6>
@@ -453,6 +461,7 @@ $userId = $_SESSION['user_id'];
                     </ol>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -478,5 +487,46 @@ $userId = $_SESSION['user_id'];
         })
       })
     </script>
+
+
+      <!-- Script de renderizado de cultivos segun cliente -->
+    <script>
+      
+    let a,b;
+      //Comprobar que se existe el cultivo con el ID
+    if(document.getElementById("cultivo0")){
+      a = document.getElementById("cultivo0");
+      a=a.textContent;
+    }
+
+    if(document.getElementById("cultivo1")){
+      b = document.getElementById("cultivo1");
+      b=b.textContent;
+     
+    }
+     
+    //Si existen, pasar de display:'none' a 'block'
+
+    if(document.getElementById(a+"-tab")){
+      let div1 = document.getElementById(a+"-tab");
+      div1.style.display = "block";
+      // div1.classList.add("active"); //Preguntar aldana sobre el evento que cambia 'active' de estado
+
+      let pane1 = document.getElementById(a+"-tab-pane");
+      pane1.classList.add("show");
+      pane1.classList.add("active");
+      
+      }
+
+    if(document.getElementById(b+"-tab")){
+      let div2 = document.getElementById(b+"-tab");
+      div2.style.display = "block";
+
+      let pane2 = document.getElementById(b+"-tab-pane");
+      pane2.classList.add("show");
+    }
+      
+    </script>
+
   </body>
 </html>

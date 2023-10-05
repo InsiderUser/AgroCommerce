@@ -31,14 +31,19 @@
         </div>
         <div class="form-body col-lg-4 col-md-12 px-lg-5 py-5 text-center">
           <h5>Inicio de sesión</h5>
-          <form class="pt-4 needs-validation" method="post" action="../../../backend/login.php" novalidate>
+          <form
+            class="pt-4 needs-validation"
+            method="post"
+            action="../../../backend/login.php"
+            novalidate
+          >
             <div class="form-group">
               <input
                 type="text"
                 name="webUser"
                 class="form-control"
                 id="user"
-                placeholder="Usuario"
+                placeholder="Usuario/Email"
                 required
               />
               <div class="invalid-feedback text-start">
@@ -104,23 +109,27 @@
     ></script>
     <script>
       (() => {
-        'use strict'
+        "use strict";
 
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
+        const forms = document.querySelectorAll(".needs-validation");
 
         // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
 
-            form.classList.add('was-validated')
-          }, false)
-        })
-      })()
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
     </script>
   </body>
 </html>
