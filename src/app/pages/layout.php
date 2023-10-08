@@ -18,7 +18,6 @@
   </head>
 
   <body onload=consulta()>
-
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container-fluid">
@@ -128,51 +127,9 @@
       </div>
 
       <div class="main-panel p-5">
-        <div class="page-header">
-            <h4 class="page-title pb-4">Sobre mis cultivos</h4>
-            <!-- <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-              </ol>
-            </nav> -->
+        <div class="page-header row">
+          <h4 class="page-title pb-4">Sobre mis cultivos</h4>
         </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-            <div class="card background-light mb-sm-3" style="min-height: 9rem;">
-              <div class="card-body">
-                <h5 class="card-title">Riego</h5>
-                <p class="card-text">Su cultivo debe ser regado en 12hs.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-            <div class="card background-light mb-sm-3" style="min-height: 9rem;">
-              <div class="card-body">
-                <h5 class="card-title">pH</h5>
-                <p class="card-text">El nivel de pH de su suelo es de 5,5.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-            <div class="card background-light mb-sm-3" style="min-height: 9rem;">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-7">
-                    <h5 class="card-title" id="titulo"></h5>
-                    <div id="lugar"></div>
-                    <div id="descripcion" class="mt-2"></div>
-                  </div>
-                  <div class="col-5 px-0 text-center">
-                    <div id="temp"></div>
-                    <img id="icono" class="m-auto" src="" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -228,6 +185,8 @@
 
                       <?php
                         include "../../backend/conection.php";
+                        include "../../backend/perceptron.php";
+                        echo "<div style='display:none'>".$valorPerceptron."</div>";
                         $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos;");
                         $provincias = pg_fetch_all($provincias);
                         mostrarProvincias($provincias);
