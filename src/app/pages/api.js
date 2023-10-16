@@ -1,14 +1,40 @@
-const city = document.getElementById("provincia_api").textContent;
-var aux = 1;
 
-function consulta() {
-  getWeather();
-  setInterval(getWeather, 2000);
+const cityElement = document.getElementById("provincia_api_0");
+let city = cityElement.textContent;
+
+const ciudades = [city];
+
+try {
+  const cityElement2 = document.getElementById("provincia_api_1");
+  const city2 = cityElement2.textContent
+  // Agregar el segundo elemento al arreglo de ciudades
+  ciudades.push(city2);
+} catch (error) {
+  // Manejar el error (en este caso, no hacer nada)
 }
 
-function getWeather() {
+
+console.log(ciudades);
+
+let ciudadActualIndex = 0; // Inicia con la primera ciudad
+
+function consulta() {
+  setInterval(() => {
+    // Cambia a la siguiente ciudad o vuelve a la primera si ya estás en la última
+    ciudadActualIndex = (ciudadActualIndex + 1) % ciudades.length;
+
+    getWeather(ciudades[ciudadActualIndex]);
+  }, 8000);
+
+  // Llama getWeather para la primera ciudad inmediatamente
+  getWeather(ciudades[ciudadActualIndex]);
+}
+
+function getWeather(city) {
   const apiKey = "06c921750b9a82d8f5d1294e1586276f";
+  city = city.replace(/\s/g, "&");
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},AR&appid=${apiKey}`;
+  console.log(apiUrl);
   fetch(apiUrl)
     .then((response) => {
       if (!response.ok) {
@@ -26,9 +52,7 @@ function getWeather() {
       var descripcion = `${description}`;
       const idCondition = data.weather[0].id;
       const iconcode = data.weather[0].icon;
-
-      //Traduccion Manual de Titulo (proximamente aplicacion de API)
-
+    
       if (titulo === "Clouds") {
         titulo = "Nublado";
       } else if (titulo === "Thunderstorm") {
@@ -43,7 +67,6 @@ function getWeather() {
         titulo = "Despejado";
       }
 
-      //Traduccion Manual de Descripcion (proximamente aplicacion de API)
       if (descripcion === "thunderstorm with light rain") {
         descripcion = "tormenta con lluvia ligera";
       } else if (descripcion === "thunderstorm with rain") {
@@ -109,8 +132,9 @@ function getWeather() {
       } else if (descripcion === "overcast clouds") {
         descripcion = "cielo nublado: 85-100%";
       }
-
+    
       console.log(iconcode);
+    
       if (idCondition >= 200 && idCondition <= 232 && aux === 1) {
         alert("Atención! Tormenta detectada");
         aux = 0;
@@ -121,21 +145,19 @@ function getWeather() {
         alert("Atención! Lluvia intensa detectada");
         aux = 0;
       }
-
+    
       console.log(idCondition);
+    
       document.getElementById("titulo").textContent = titulo;
       document.getElementById("lugar").textContent = lugar;
       document.getElementById("temp").textContent = temperatura;
       document.getElementById("descripcion").textContent = descripcion;
-      document.getElementById(
-        "icono"
-      ).src = `http://openweathermap.org/img/w/${iconcode}.png`;
+      document.getElementById("icono").src = `http://openweathermap.org/img/w/${iconcode}.png`;
     })
     .catch((error) => {
       console.error("Ocurrió un error:", error);
+      // Actualiza la información de error para la ciudad actual
       document.getElementById("weatherInfo").textContent =
-        "Error al obtener la información del tiempo";
+        `Error al obtener la información del tiempo para ${city}`;
     });
 }
-
-//  Aviso:   Tierra del fuego y Chubut no arrojan datos
