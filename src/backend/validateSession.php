@@ -3,13 +3,15 @@
   $userId = $_SESSION['user_id'];
   $counter = 0;
   $a;
+  $id_provincia = 0;
   // Obtener el cultivo segun el usuario
   $pg = pg_query($conectado,"SELECT tipo_cultivo,intervalo,fecha,provincia,hectarea FROM cultivos_clientes WHERE fk_clientes = '$userId'");
   $flag = 0;
     while ($row = pg_fetch_assoc($pg)) {
       $flag = $flag +1;
+      #Obtencion de la provincia de la db para utilizarla en la API por medio de JS.
       $a = $row['provincia'];
-      echo "<div id='provincia_api' style='display:none'>".$a."</div>";
+      echo "<div id='provincia_api_$id_provincia' style='display:none'>".$a."</div>";
       echo("
       <div class=\"row justify-content-between mx-1 mb-5\">
         <div class='d-flex align-items-center gap-2 mb-3 p-0'>
@@ -83,6 +85,7 @@
           </div>
         </div>
       </div>");
+      $id_provincia++;
       $counter = $counter+1;
     }
     
