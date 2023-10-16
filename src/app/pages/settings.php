@@ -815,7 +815,7 @@ function getCrops($conectado, $userId,$flag){
 
                         <!-- Datos del suelo - nivel de ph y de humedad -->
                         <div class="tab-pane fade" id="v-pills-ground" role="tabpanel" aria-labelledby="v-pills-ground-tab" tabindex="0">
-                            <form class="pt-4 needs-validation" method="" action="" novalidate>
+                            <form class="pt-4 needs-validation" method="post" action="../../backend/setPerceptron.php" novalidate>
                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                     <!-- Nivel de pH -->
                                     <div class="form-group">

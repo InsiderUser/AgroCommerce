@@ -5,8 +5,9 @@
   $a;
   // Obtener el cultivo segun el usuario
   $pg = pg_query($conectado,"SELECT tipo_cultivo,intervalo,fecha,provincia,hectarea FROM cultivos_clientes WHERE fk_clientes = '$userId'");
-
+  $flag = 0;
     while ($row = pg_fetch_assoc($pg)) {
+      $flag = $flag +1;
       $a = $row['provincia'];
       echo "<div id='provincia_api' style='display:none'>".$a."</div>";
       echo("
@@ -48,6 +49,7 @@
                   </svg>
                   Activar riego
                 </button>
+                <p style=\"display:none;\" id='intervalPrinted" . $flag . "'>" . $row['intervalo'] . "</p>
               </div>
             </a>
             <a href=\"#\" class=\"list-group-item list-group-item-action\">
