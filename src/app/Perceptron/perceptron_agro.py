@@ -5,7 +5,7 @@ import psycopg2
 
 # Configura los detalles de la conexión
 host = "localhost"
-port = "5050"
+port = "5432"
 database = "agrocommercedb"
 user = "postgres"
 password = "postgres"
@@ -22,6 +22,15 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 cur.execute("SELECT * FROM perceptron WHERE id = 1")
+cur.execute("SELECT ph FROM perceptron")
+ph = cur.fetchall()
+cur.execute("SELECT humedad FROM perceptron")
+humedad = cur.fetchall()
+
+ph = ph[0][0]
+humedad = humedad[0][0]
+print("ph", ph[0][0])
+print("hum", humedad[0][0])
 
 # Recupera los resultados de la consulta
 resultados = cur.fetchall()
@@ -30,11 +39,10 @@ resultados = cur.fetchall()
 for fila in resultados:
     print(fila)
 
-
 valores = []
 etiquetas = []
 
-cultivo = input("Cultivo: ")
+cultivo = input("Ingrese el cultivo: ")
 
 with open("C:/xampp/htdocs/AgroCommerce/src/app/Perceptron/datasets/" + cultivo + "_dataset.csv", newline="") as File:
     reader = csv.reader(File)
@@ -60,10 +68,8 @@ for _ in range(1000):  # Número de épocas de entrenamiento
         perceptron_and.propagacion(entradas)
         perceptron_and.actualizacion_coef(0.1, salida_deseada)
 
-ph = float(input("Ingrese el pH del suelo: "))
-humedad = int(input("Ingrese la humedad en porcentaje: "))
 
-perceptron_and.propagacion(np.array([ph, humedad]))
+perceptron_and.propagacion(np.array([int(ph), int(humedad)]))
 resultado = perceptron_and.salida
 valores = np.append(valores, [ph, humedad, resultado])
 print("Resultado:", resultado)
