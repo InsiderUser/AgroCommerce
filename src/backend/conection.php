@@ -3,7 +3,7 @@
         <?php
             // PUERTOS 5432 O 5050
             $host = "localhost";
-            $port = "5432";
+            $port = "5050";
             $user = "postgres";
             $pass = "postgres";
             $dbname = "agrocommercedb";
