@@ -59,7 +59,15 @@
                 <h5 class=\"mb-1\">pH</h5>
               </div>
               <p class=\"mb-1\">El nivel de pH de su suelo es de [número].</p>
-              <small class=\"text-body-secondary\">Según el nivel de ph y el nivel de humedad, su suelo se encuentra en óptimas condiciones para su cultivo.</small>
+              <!--!  ---------- Ph óptimo ----------  -->
+              <small class=\"text-body-secondary\" style='display:none;'>Según el nivel de pH y el nivel de humedad, su suelo se encuentra en óptimas condiciones.</small>
+              <!--! ---------- Ph deficiente/malo ---------- -->
+              <div class='d-flex flex-column'>
+                <small class=\"text-body-secondary\">Según el nivel de pH y el nivel de humedad, su suelo no se encuentra en óptimas condiciones.</small>
+                <button href='recomendaciones' class='bg-light link link-secondary p-0 link-opacity-75-hover' type='link' id='btnMejorarPH'>
+                  <small>¿Cómo mejorar el Ph?</small>
+                </button>
+              </div>
             </a>
           </div>
         </div>
