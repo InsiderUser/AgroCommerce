@@ -34,7 +34,7 @@
               <div class=\"d-flex w-100 justify-content-between\">
                 <h5 class=\"mb-1\">Fecha de siembra</h5>
               </div>
-              <small>La siembra se estableció para el día: " . $row['fecha'] ."</small>
+              <small>La siembra se estableció para el día: " . date("d/m/Y", strtotime($row['fecha'])) ."</small>
             </a>
             <a class=\"list-group-item list-group-item-action\" style=\"cursor: default;\">
               <div class=\"d-flex w-100 justify-content-between\">
