@@ -6,8 +6,9 @@
   $id_provincia = 0;
   // Obtener el cultivo segun el usuario
   $pg = pg_query($conectado,"SELECT tipo_cultivo,intervalo,fecha,provincia,hectarea FROM cultivos_clientes WHERE fk_clientes = '$userId'");
-
+  $flag = 0;
     while ($row = pg_fetch_assoc($pg)) {
+      $flag = $flag +1;
       #Obtencion de la provincia de la db para utilizarla en la API por medio de JS.
       $a = $row['provincia'];
       echo "<div id='provincia_api_$id_provincia' style='display:none'>".$a."</div>";
@@ -50,6 +51,7 @@
                   </svg>
                   Activar riego
                 </button>
+                <p style=\"display:none;\" id='intervalPrinted" . $flag . "'>" . $row['intervalo'] . "</p>
               </div>
             </a>
             <a href=\"#\" class=\"list-group-item list-group-item-action\">
