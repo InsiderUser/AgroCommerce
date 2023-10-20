@@ -127,8 +127,31 @@
       </div>
 
       <div class="main-panel p-5">
-        <div class="page-header row">
-          <h4 class="page-title pb-4">Sobre mis cultivos</h4>
+        <div class="page-header row pb-4">
+          <div class="col">
+            <h4 class="page-title">Sobre mis cultivos</h4>
+          </div>
+          <div class="col-md-4 col-xxl-3 col-sm-6">
+            <div class='card background-light'>
+              <div class='card-body'>
+                <div class='row text-center my-3'>
+                    <div class='d-flex flex-row justify-content-center align-items-center mb-1'>
+                      <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-geo-alt' viewBox='0 0 16 16'>
+                        <path d='M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z'/>
+                        <path d='M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/>
+                      </svg>
+                      <h5 class='card-title m-0 mx-1' id='lugar'></h5><h5 class='card-title m-0 mx-1'>- ARG</h5>
+                    </div>
+                    <h6 id='titulo'></h6>
+                    <div class='d-flex flex-row align-items-baseline justify-content-center'>
+                        <div id='temp'></div>
+                        <img id='icono' src='' alt='icono-temperatura'>
+                    </div>
+                    <div id='descripcion' class='mt-1'></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
@@ -145,7 +168,6 @@
                     ?>
                   </div>
                 </div>
-
                 <?php
                 include '../../backend/validateSession.php';
                 ?>
