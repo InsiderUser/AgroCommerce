@@ -127,189 +127,25 @@
       </div>
 
       <div class="main-panel p-5">
-        <div class="page-header row pb-4">
-          <div class="col">
-            <h4 class="page-title">Sobre mis cultivos</h4>
-          </div>
-          <div class="col-md-4 col-xxl-3 col-sm-6">
-            <div class='card background-light'>
-              <div class='card-body'>
-                <div class='row text-center my-3'>
-                    <div class='d-flex flex-row justify-content-center align-items-center mb-1'>
-                      <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-geo-alt' viewBox='0 0 16 16'>
-                        <path d='M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z'/>
-                        <path d='M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/>
-                      </svg>
-                      <h5 class='card-title m-0 mx-1' id='lugar'></h5><h5 class='card-title m-0 mx-1'>- ARG</h5>
-                    </div>
-                    <h6 id='titulo'></h6>
-                    <div class='d-flex flex-row align-items-baseline justify-content-center'>
-                        <div id='temp'></div>
-                        <img id='icono' src='' alt='icono-temperatura'>
-                    </div>
-                    <div id='descripcion' class='mt-1'></div>
-                </div>
+        <div class="page-header">
+            <h4 class="page-title pb-4">Información sobre el pH del Suelo</h4>
+        </div>
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <p><b>Cómo se mide el pH del suelo</b><br>
+                  El pH se mide en una escala en dos direcciones: de 0 a 7 se describe una cualidad ácida, el nivel medio (7) indica un suelo neutro, y un valor superior a 7 describe suelos de calidad alcalinas. Cada variedad de cultivo tiene sus propios requisitos en lo que respecta al pH, al nivel hídrico y a los nutrientes de la tierra, entre otros factores a considerar.<br>
+                  <b>Pero, ¿cómo medimos el pH del suelo?</b><br>
+                  Lo cierto es que, en la mayoría de los casos, los grandes cultivos requieren de mediciones específicas, técnicas y profesionales, por lo que se solicitan análisis de acidez/alcalinidad en laboratorios de suelos. Pero este es un proceso que conlleva cierto costo, así que si necesitas hacer una medición de pH puedes aplicar técnicas menos costosas.
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <h5 class="page-title pb-4">Cultivos</h5>
-                  </div>
-                  <div class="col-4 text-end">
-                    <!-- Button modal -->
-                    <?php
-                    include '../../backend/validateButton.php';
-                    ?>
-                  </div>
-                </div>
-                <?php
-                include '../../backend/validateSession.php';
-                ?>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
-    <!-- Modal: agregar cultivo-->
-    <div class="modal fade" id="modalNewCrop" tabindex="-1" aria-labelledby="modalNewCrop" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalNewCrop">Nuevo cultivo</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-          <form
-                  class="pt-3 needs-validation"
-                  method="post"
-                  action="../../backend/newFarm.php"
-                  novalidate
-                >
-                  <!-- Provincia -->
-                  <div class="form-group">
-                    <select
-                      class="form-control"
-                      name="province"
-                      required
-                      id="exampleFormControlSelect2"
-                    >
-                      <option selected disabled>
-                        En que provincia se ubicará?
-                      </option>
-
-                      <?php
-                        include "../../backend/conection.php";
-                        include "../../backend/perceptron.php";
-                        echo "<div style='display:none'>".$valorPerceptron."</div>";
-                        $provincias = pg_query($conectado,"SELECT DISTINCT provincia_nombre FROM cultivos;");
-                        $provincias = pg_fetch_all($provincias);
-                        mostrarProvincias($provincias);
-
-                      function mostrarProvincias($provincias){
-                          if ($provincias !== false) {
-                              foreach ($provincias as $fila) {
-                                  $provincia_nombre = $fila['provincia_nombre'];
-                                  echo "<option value=\"$provincia_nombre\">$provincia_nombre</option>";
-                              }
-                          }
-                      }
-                      ?>
-                    </select>
-                    <div class="invalid-feedback text-start">
-                      Debe seleccionar la provincia.
-                    </div>
-                  </div>
-                  <!-- Cultivo -->
-                  <div class="form-group mt-3">
-                    <select name="seed" required class="form-control" id="exampleFormControlSelect2">
-                      <option selected disabled>Que cultivo sembrará?</option>
-
-                      <?php
-                        include "../../backend/conection.php";
-                        $cultivos = pg_query($conectado,"SELECT DISTINCT cultivo_nombre FROM cultivos");
-                        $cultivos = pg_fetch_all($cultivos);
-                        mostrarCultivos($cultivos);
-
-                      function mostrarCultivos($cultivos){
-                          if ($cultivos !== false) {
-                              foreach ($cultivos as $fila) {
-                                  $cultivo_nombre = $fila['cultivo_nombre'];
-                                  echo "<option value=\"$cultivo_nombre\">$cultivo_nombre</option>";
-                              }
-                          }
-                      }
-                      ?>
-
-                    </select>
-                    <div class="invalid-feedback text-start">
-                      Debe seleccionar el cultivo.
-                    </div>
-                  </div>
-                  <div class="row mt-3">
-                    <div class="col-md-6">
-                      <!-- Intervalo de riego -->
-                      <div class="form-group">
-                        <input
-                          required
-                          type="number"
-                          name="interval"
-                          class="form-control"
-                          id="exampleInputUsername1"
-                          placeholder="Intervalo de riego"
-                        />
-                        <div class="invalid-feedback text-start">
-                          Debe ingresar el intervalo de riego.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <!-- Numero de hectareas -->
-                      <div class="form-group">
-                        <input
-                          required
-                          type="number"
-                          name="hectare"
-                          class="form-control"
-                          id="exampleInputUsername1"
-                          placeholder="Hectareas cultivadas"
-                        />
-                        <div class="invalid-feedback text-start">
-                          Debe ingresar el n° de hectareas cultivadas.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Fecha de siembra -->
-                  <div class="form-group mt-3">
-                    <input
-                      required
-                      type="date"
-                      name="seedtime"
-                      class="form-control"
-                      id="exampleInputUsername1"
-                      placeholder="Fecha de siembra"
-                    />
-                    <div class="invalid-feedback text-start">
-                      Debe ingresar la fecha de siembra.
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-            <button type="submit" class="btn btn-primary text-light">Guardar cambios</button>
-          </div>
-                </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
 
     <script src="./api.js"></script>
     <script src="./countdown.js"></script>
@@ -317,39 +153,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-
-
-    <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
-    <script>
-      const myModal = document.getElementById('modalNewCrop')
-      const myInput = document.getElementById('buttonModal')
-
-      myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-      })
-    </script>
-    <script>
-      (() => {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-
-            form.classList.add('was-validated')
-          }, false)
-        })
-      })()
-    </script>
   </body>
 </html>

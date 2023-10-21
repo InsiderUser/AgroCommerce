@@ -11914,6 +11914,15 @@ textarea.form-control-lg {
   max-width: 200px;
 }
 
+.list-group-item #btnMejorarPH {
+  background-color: transparent !important;
+  outline: none;
+  border: 0;
+  text-align: start;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .form-login,
 .form-recovery,
 .form-register {
@@ -12006,7 +12015,7 @@ img.img-logo {
 }
 
 #temp {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 #descripcion {

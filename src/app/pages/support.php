@@ -139,36 +139,56 @@ $userId = $_SESSION['user_id'];
                             <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                PREGUNTA #1
+                                ¿Qué es AgroCommerce?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <strong>AgroCommerce</strong> es una plataforma en línea diseñada para ayudar a los agricultores a gestionar sus cultivos y obtener información relevante sobre sus parcelas, como el clima, el pH del suelo y más.
                                 </div>
                             </div>
                             </div>
                             <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    PREGUNTA #2
+                                ¿Cómo puedo cargar mis cultivos en AgroCommerce?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                Después de registrarte, inicia sesión en tu cuenta y selecciona la opción "Agregar Nuevo Cultivo". Luego, completa los campos requeridos con la información de tu cultivo y guárdalo.
                                 </div>
                             </div>
                             </div>
                             <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    PREGUNTA #3
+                                ¿Dónde puedo encontrar información sobre el clima de mi provincia?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                Puedes acceder a la información meteorológica de tu provincia desde el panel de control de tu cultivo. Allí encontrarás datos actualizados sobre el clima y pronósticos.
+                                </div>
+                            </div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Qué herramientas ofrece AgroCommerce para la gestión de riego?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  AgroCommerce te permite establecer la frecuencia de riego para tus cultivos. Puedes configurar recordatorios y recibir notificaciones para asegurarte de que tus plantas reciban la cantidad adecuada de agua.
+                                </div>
+                            </div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFour">
+                                ¿Cómo puedo contactar al soporte de AgroCommerce en caso de problemas o preguntas?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                Puedes ponerse en contacto con nuestro equipo de soporte a través del formulario que se encuentra en esta misma página. Estamos aquí para ayudarte con cualquier pregunta o inquietud que tengas.
                                 </div>
                             </div>
                             </div>
