@@ -308,7 +308,7 @@
           </div>
 
         </div>
-      </div>
+      </div>      
     </div>
 
     <script src="./api.js"></script>
