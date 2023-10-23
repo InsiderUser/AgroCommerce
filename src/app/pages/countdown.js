@@ -1,27 +1,38 @@
-let timerOne, correo;
-if (document.getElementById("intervalPrinted1")) {
-  timerOne = parseInt(document.getElementById("intervalPrinted1").textContent);
-  correo = document.getElementById("correoPrinted1").textContent;
-} else {
-  console.log("No existe 1");
-}
+const { enviarMail } = require("./apiMailer");
 
-function startInterval() {
-  var now = new Date().getTime() / 60000;
-  var timerFuturo = timerOne + now;
+let startLoop = () => {
+  alert(`LOOP ACTIVADO`);
+  let timerOne, correo;
+  if (document.getElementById("intervalPrinted1")) {
+    timerOne = parseInt(
+      document.getElementById("intervalPrinted1").textContent
+    );
+    correo = document.getElementById("correoPrinted1").textContent;
+  } else {
+    console.log("No existe 1");
+  }
 
-  var x = setInterval(function () {
-    now = new Date().getTime() / 60000; // Actualiza el valor de 'now'
+  function startInterval() {
+    var now = new Date().getTime() / 60000;
+    var timerFuturo = timerOne + now;
 
-    if (now >= timerFuturo) {
-      clearInterval(x); // Detener el intervalo
-      alert(`Intervalo cumplido al mail ${correo}`);
+    var x = setInterval(async function () {
+      now = new Date().getTime() / 60000; // Actualiza el valor de 'now'
+      console.log(now);
+      if (now >= timerFuturo) {
+        clearInterval(x); // Detener el intervalo
+        alert(`Intervalo cumplido al mail ${correo}`);
+        // enviarMail(correo);
+        await enviarMail();
 
-      // Iniciar el intervalo nuevamente
-      startInterval();
-    }
-  }, 1000); // Actualizar cada segundo
-}
+        // Iniciar el intervalo nuevamente
+        startInterval();
+      }
+    }, 1000); // Actualizar cada segundo
+  }
 
-// Inicia el intervalo
-startInterval();
+  // Inicia el intervalo
+  startInterval();
+};
+
+module.exports = { startLoop };
