@@ -6,6 +6,22 @@
   $id_provincia = 0;
   // Obtener el cultivo segun el usuario
   $pg = pg_query($conectado,"SELECT tipo_cultivo,intervalo,fecha,provincia,hectarea FROM cultivos_clientes WHERE fk_clientes = '$userId'");
+  $pg_perceptron = pg_query($conectado, "SELECT ph FROM perceptron");
+  $pg_valor = pg_query($conectado, "SELECT valores FROM perceptron"); 
+  
+  $valor_perceptron = pg_fetch_assoc($pg_valor);
+  $valor = pg_fetch_assoc($pg_perceptron);
+  $ph = $valor['ph'];
+  $pereceptron = $valor_perceptron['valores'];
+  if ($pereceptron==1){
+    $local = '';
+    $local_neg = 'none';
+  }
+  else if($pereceptron==0){
+    $local = 'none';
+    $local_neg = '';
+  }
+
   $flag = 0;
     while ($row = pg_fetch_assoc($pg)) {
       $flag = $flag +1;
@@ -58,12 +74,13 @@
               <div class=\"d-flex w-100 justify-content-between\">
                 <h5 class=\"mb-1\">pH</h5>
               </div>
-              <p class=\"mb-1\">El nivel de pH de su suelo es de [número].</p>
+              <p class=\"mb-1\">El nivel de pH de su suelo es de $ph.</p>
+              
               <!--!  ---------- Ph óptimo ----------  -->
-              <small class=\"text-body-secondary\" style='display:none;'>Según el nivel de pH y el nivel de humedad, su suelo se encuentra en óptimas condiciones.</small>
+              <small class=\"text-body-secondary\" style='display:$local;'>Según el nivel de pH y el nivel de humedad, su suelo se encuentra en óptimas condiciones.</small>
               <!--! ---------- Ph deficiente/malo ---------- -->
               <div class='d-flex flex-column'>
-                <small class=\"text-body-secondary\">Según el nivel de pH y el nivel de humedad, su suelo no se encuentra en óptimas condiciones.</small>
+                <small class=\"text-body-secondary\" style='display:$local_neg;'>Según el nivel de pH y el nivel de humedad, su suelo no se encuentra en óptimas condiciones.</small>
                 <button onclick=\"window.location='../pages/ph-level.php'\" class='bg-light link link-secondary p-0 link-opacity-75-hover' type='link' id='btnMejorarPH'>
                   <small>¿Cómo mejorar el Ph?</small>
                 </button>

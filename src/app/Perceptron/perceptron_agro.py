@@ -26,11 +26,16 @@ cur.execute("SELECT ph FROM perceptron")
 ph = cur.fetchall()
 cur.execute("SELECT humedad FROM perceptron")
 humedad = cur.fetchall()
+cur.execute("SELECT cultivos FROM perceptron")
+cultivo = cur.fetchall()
 
 ph = ph[0][0]
 humedad = humedad[0][0]
+cultivo = cultivo[0][0]
 print("ph", ph[0][0])
 print("hum", humedad[0][0])
+print("cultivo", cultivo)
+
 
 # Recupera los resultados de la consulta
 resultados = cur.fetchall()
@@ -41,8 +46,6 @@ for fila in resultados:
 
 valores = []
 etiquetas = []
-
-cultivo = input("Ingrese el cultivo: ")
 
 with open("C:/xampp/htdocs/AgroCommerce/src/app/Perceptron/datasets/" + cultivo + "_dataset.csv", newline="") as File:
     reader = csv.reader(File)
