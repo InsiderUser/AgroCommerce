@@ -157,6 +157,7 @@ $userId = $_SESSION['user_id'];
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                 Después de registrarte, inicia sesión en tu cuenta y selecciona la opción "Agregar Nuevo Cultivo". Luego, completa los campos requeridos con la información de tu cultivo y guárdalo.
+                                <a href="./layout.php">Ir a agregar cultivos</a>
                                 </div>
                             </div>
                             </div>
@@ -169,7 +170,8 @@ $userId = $_SESSION['user_id'];
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                 Puedes acceder a la información meteorológica de tu provincia desde el panel de control de tu cultivo. Allí encontrarás datos actualizados sobre el clima y pronósticos.
-                                </div>
+                                <a href="./layout.php">Ver clima</a>  
+                              </div>
                             </div>
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
@@ -189,6 +191,26 @@ $userId = $_SESSION['user_id'];
                             <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                 Puedes ponerse en contacto con nuestro equipo de soporte a través del formulario que se encuentra en esta misma página. Estamos aquí para ayudarte con cualquier pregunta o inquietud que tengas.
+                                </div>
+                            </div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                ¿Cómo puedo obtener más información sobre cultivos?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                Puedes ingresar a la sección <a href="./crops.php">Más sobre cultivos</a> para obtener información detallada y ordenada cronológicamente.
+                                </div>
+                            </div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                ¿Cómo puedo obtener información sobre plagas e insecticidas?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                Puedes ingresar a la sección <a href="./pests-insecticides.php">Plagas e insecticidas</a> para obtener información detallada para tratar tus cultivos ante plagas o aprender a evitarlas.
                                 </div>
                             </div>
                             </div>

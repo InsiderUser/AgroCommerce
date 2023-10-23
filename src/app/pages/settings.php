@@ -649,8 +649,21 @@ function getCrops($conectado, $userId,$flag){
                         <div class="tab-pane fade" id="v-pills-ground" role="tabpanel" aria-labelledby="v-pills-ground-tab" tabindex="0">
                             <form class="pt-4 needs-validation" method="post" action="../../backend/setPerceptron.php" novalidate>
                                 <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <!-- Nivel de pH -->
+                                    <!-- Cultivo -->
                                     <div class="form-group">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        name="cultivoNombre"
+                                        placeholder="Introduzca el nombre del cultivo"
+                                        required
+                                        />
+                                        <div class="invalid-feedback text-start">
+                                            Debe ingresar el nombre del cultivo.
+                                        </div>
+                                    </div>
+                                    <!-- Nivel de pH -->
+                                    <div class="form-group mt-2">
                                         <input
                                         type="text"
                                         class="form-control"
