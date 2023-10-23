@@ -1,23 +1,38 @@
-let timerOne;
+const { enviarMail } = require("./apiMailer");
 
-if (document.getElementById("intervalPrinted1")) {
-  timerOne = parseInt(document.getElementById("intervalPrinted1").textContent);
-  console.log("existe 1");
-} else {
-  console.log("error 1");
-}
-
-// var countDownDate = new Date("Oct 16, 2023 02:33").getTime(); // Obtener el tiempo en milisegundos
-
-console.log(timerOne);
-var x = setInterval(function () {
-  var now = new Date().getTime();
-  var distance = timerOne - now; // Calcular la diferencia entre el tiempo actual y el tiempo objetivo
-
-  if (distance <= 0) {
-    // El tiempo ha llegado o pasado
-    clearInterval(x); // Detener el intervalo
-    console.log("Es hora de la notificación");
-    // Aquí puedes emitir tu notificación
+let startLoop = () => {
+  alert(`LOOP ACTIVADO`);
+  let timerOne, correo;
+  if (document.getElementById("intervalPrinted1")) {
+    timerOne = parseInt(
+      document.getElementById("intervalPrinted1").textContent
+    );
+    correo = document.getElementById("correoPrinted1").textContent;
+  } else {
+    console.log("No existe 1");
   }
-}, 1000); // Actualizar cada segundo
+
+  function startInterval() {
+    var now = new Date().getTime() / 60000;
+    var timerFuturo = timerOne + now;
+
+    var x = setInterval(async function () {
+      now = new Date().getTime() / 60000; // Actualiza el valor de 'now'
+      console.log(now);
+      if (now >= timerFuturo) {
+        clearInterval(x); // Detener el intervalo
+        alert(`Intervalo cumplido al mail ${correo}`);
+        // enviarMail(correo);
+        await enviarMail();
+
+        // Iniciar el intervalo nuevamente
+        startInterval();
+      }
+    }, 1000); // Actualizar cada segundo
+  }
+
+  // Inicia el intervalo
+  startInterval();
+};
+
+module.exports = { startLoop };

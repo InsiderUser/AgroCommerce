@@ -291,14 +291,20 @@ function getCrops($conectado, $userId,$flag){
                                 <!-- Cultivo N1 -->
                                 <div class="tab-pane fade show active" id="nav-crop1" role="tabpanel" aria-labelledby="nav-crop1-tab" tabindex="0">
                                     <div class="d-flex justify-content-between my-4">
-                                        <h5 class="text-capitalize">Nombre cultivo</h5>
-                                        <button class="btn btn-danger" type="button" id="deleteCrop">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
-                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
-                                            </svg> 
-                                            Eliminar
-                                        </button>
+                                        <!-- Titulo con nombre de Cultivo -->
+                                        <h5 class="text-capitalize"><?php
+                                                        $flag=1;
+                                                        getCrops($conectado,$userId,$flag);
+                                                    ?></h5>
+                                        <form action="../../backend/deleteCrops.php" method="post">
+                                            <button class="btn btn-danger" type="submit" id="deleteCrop" name="deleteCrop1" >
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                                             </svg> 
+                                             Eliminar
+                                            </button>
+                                        </form>
                                     </div>
                                     <form class="needs-validation" name="" method="post" action="../../backend/updateCropsData.php" novalidate>
                                         <div class="col-lg-6 col-md-8 col-sm-12">
@@ -320,7 +326,7 @@ function getCrops($conectado, $userId,$flag){
                                             </div>
                                             <!-- Cultivo -->
                                             <div class="form-group mt-2">
-                                                <select class="form-select" name="seed" id="selectSeed" disabled>
+                                                <select class="form-select" name="seed" id="selectSeed" style="display:none" disabled>
                                                 <option selected>
                                                     <?php
                                                         $flag=1;
@@ -462,16 +468,26 @@ function getCrops($conectado, $userId,$flag){
                                 <!-- Cultivo N2 -->
                                 <div class="tab-pane fade"  id="nav-crop2" role="tabpanel" aria-labelledby="nav-crop2-tab" tabindex="0">
                                     <div class="d-flex justify-content-between my-4">
-                                        <h5 class="text-capitalize">Nombre cultivo</h5>
-                                        <button class="btn btn-danger" type="button" id="deleteCrop">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
-                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
-                                            </svg> 
-                                            Eliminar
-                                        </button>
+                                        <!-- Titulo con nombre de Cultivo -->
+                                        <h5 class="text-capitalize"><?php
+                                                        $flag=4;
+                                                        getCrops($conectado,$userId,$flag);
+                                                    ?></h5>
+
+                                                    
+                                        <form action="../../backend/deleteCrops.php" method="post">
+                                            <button class="btn btn-danger" type="submit" id="deleteCrop" name="deleteCrop2" >
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                                             </svg> 
+                                             Eliminar
+                                            </button>
+                                        </form>
+
+                                       
                                     </div>
-                                    <form class="needs-validation" name="<?php ?>" method="post" action="../../backend/updateCropsData.php" novalidate>
+                                    <form class="needs-validation" name="" method="post" action="../../backend/updateCropsData.php" novalidate>
                                         <div class="col-lg-6 col-md-8 col-sm-12">
                                             <!-- Provincia -->
                                             <div class="form-group mt-2">
@@ -489,7 +505,7 @@ function getCrops($conectado, $userId,$flag){
                                             </div>
                                             <!-- Cultivo -->
                                             <div class="form-group mt-2">
-                                                <select class="form-select" name="seed" id="selectSeed" disabled>
+                                                <select class="form-select" name="seed" id="selectSeed" style="display:none" disabled>
                                                 <option id='evaluate' selected><?php
                                                         $flag=4;
                                                         getCrops($conectado,$userId,$flag);

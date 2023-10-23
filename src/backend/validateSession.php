@@ -6,6 +6,9 @@
   $id_provincia = 0;
   // Obtener el cultivo segun el usuario
   $pg = pg_query($conectado,"SELECT tipo_cultivo,intervalo,fecha,provincia,hectarea FROM cultivos_clientes WHERE fk_clientes = '$userId'");
+  $getMail = pg_query($conectado, "SELECT correo FROM clientes WHERE id='$userId'");
+  $getMail = pg_fetch_assoc($getMail);
+
   $pg_perceptron = pg_query($conectado, "SELECT ph FROM perceptron");
   $pg_valor = pg_query($conectado, "SELECT valores FROM perceptron"); 
   
@@ -68,6 +71,7 @@
                   Activar riego
                 </button>
                 <p style=\"display:none;\" id='intervalPrinted" . $flag . "'>" . $row['intervalo'] . "</p>
+                <p style=\"display:none;\" id='correoPrinted" . $flag . "'>" . $getMail['correo'] . "</p>
               </div>
             </a>
             <a class=\"list-group-item list-group-item-action\" style=\"cursor: default;\">
