@@ -16,7 +16,9 @@
   "author": "Baurer, Boix, Romanazzi, Ruiz",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.1"
+    "bootstrap": "^5.3.1",
+    "nodemailer": "^6.9.7",
+    "pm2": "^5.3.0"
   },
   "bugs": {
     "url": "https://github.com/InsiderUser/AgroCommerce/issues"
