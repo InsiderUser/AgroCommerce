@@ -85,7 +85,7 @@
               <!--! ---------- Ph deficiente/malo ---------- -->
               <div class='d-flex flex-column'>
                 <small class=\"text-body-secondary\" style='display:$local_neg;'>Según el nivel de pH y el nivel de humedad, su suelo no se encuentra en óptimas condiciones.</small>
-                <button onclick=\"window.location='../pages/ph-level.php'\" class='bg-light link link-secondary p-0 link-opacity-75-hover' type='link' id='btnMejorarPH'>
+                <button onclick=\"window.location='../pages/ph-level.php'\"  style='display:$local_neg;' class='bg-light link link-secondary p-0 link-opacity-75-hover' type='link' id='btnMejorarPH'>
                   <small>¿Cómo mejorar el Ph?</small>
                 </button>
               </div>

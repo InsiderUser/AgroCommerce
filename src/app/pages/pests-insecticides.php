@@ -34,17 +34,6 @@ $userId = $_SESSION['user_id'];
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item mx-3">
-              <a class="nav-link active" href="#"
-                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                data-bs-custom-class="custom-tooltip"
-                data-bs-title="Notificaciones"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-                </svg>
-              </a>
-            </li>
-            <li class="nav-item mx-3">
               <a class="nav-link" href="../pages/settings.php"
                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                 data-bs-custom-class="custom-tooltip"
@@ -77,7 +66,7 @@ $userId = $_SESSION['user_id'];
       <div class="sidebar" id="sidebar">
         <ul class="nav d-flex flex-column p-2">
           <li class="nav-item">
-            <a href="#" class="nav-link d-flex">
+            <a href="./settings.php" class="nav-link d-flex">
               <div class="nav-profile-image">
                 <?php
                 include '../../backend/getImage.php'
@@ -115,6 +104,14 @@ $userId = $_SESSION['user_id'];
               <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
             </svg>
               <span class="menu-title">Plagas e insecticidas</span>
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link" href="./ph-level.php">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layers" viewBox="0 0 16 16">
+              <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0l3.515-1.874zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z"/>
+            </svg>
+              <span class="menu-title">Nivel de pH</span>
             </a>
           </li>
           <li class="nav-item mt-3">
@@ -161,21 +158,46 @@ $userId = $_SESSION['user_id'];
                   <div class="tab-pane fade" id="centeno-tab-pane" role="tabpanel" aria-labelledby="centeno-tab" tabindex="0">
                     <h5>Plagas Comunes en Cultivos de Centeno (Secale cereale)</h5>
                     <br>
-                    <h6>Plagas habitualmente asociadas</h6>
-                    <ol>
-                      <li>Royas: diversos tipos de royas, como la roya de la hoja (Puccinia recondita),
-                        pueden afectar al centeno. Provocan manchas amarillas o rojas en las hojas,
-                        lo que reduce la capacidad de fotosíntesis.</li>
-                      <li>Ácaros: como el ácaro araña (Tetranychus urticae), suelen causar
-                        decoloración y decoloración de las hojas, afectando la salud general de la
-                        planta.</li>
-                      <li>Gorgojos del Grano: los gorgojos, como el gorgojo del centeno (Sitophilus
-                        granarius), pueden dañar los granos almacenados y disminuir la calidad del
-                        producto.</li>
-                      <li>Barrenadores de Tallo: los barrenadores, como el barrenador del tallo del
-                        centeno (Elasmopalpus lignosellus), perforan los tallos y debilitan la planta, lo
-                        que puede resultar en pérdida de rendimiento.</li>
-                    </ol>
+                    <h6 class="pb-2">Plagas habitualmente asociadas</h6>
+
+                    <div class="row justify-content-evenly g-2 gap-2">
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/puccinia-recondita" target="_blank">
+                        <img src="../../assets/images/plagas/royas-centeno.jpg" class="card-img-top" alt="royas-centeno" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Royas</b><br>
+                            Diversos tipos de royas, como la roya de la hoja (Puccinia recondita), pueden afectar al centeno. Provocan manchas amarillas o rojas en las hojas, lo que reduce la capacidad de fotosíntesis.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://es.wikipedia.org/wiki/Tetranychus_urticae" target="_blank">
+                        <img src="../../assets/images/plagas/acaro-araña.jpg" class="card-img-top" alt="acaro-araña" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Ácaros</b><br>
+                            El ácaro araña (Tetranychus urticae), suelen causar decoloración y decoloración de las hojas, afectando la salud general de la planta.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/sitophilus-granarius" target="_blank">
+                        <img src="../../assets/images/plagas/gorgojo.jpg" class="card-img-top" alt="gorgojo-planta" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Gorgojos del Grano</b><br>
+                            Los gorgojos, como el gorgojo del centeno (Sitophilus granarius), pueden dañar los granos almacenados y disminuir la calidad del producto.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/elasmopalpus-lignosellus" target="_blank">
+                        <img src="../../assets/images/plagas/barrendores-tallo.jpg" class="card-img-top" alt="barrendores-tallo" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Barrenadores de Tallo</b><br>
+                            Los barrenadores, como el barrenador del tallo del centeno (Elasmopalpus lignosellus), perforan los tallos y debilitan la planta, lo que puede resultar en pérdida de rendimiento.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
 
                     <br>
                     <h6>Impacto en el cultivo</h6>
@@ -199,40 +221,87 @@ $userId = $_SESSION['user_id'];
                       <li>Nivel de infestación de ácaros y gorgojos en los últimos 6 meses.</li>
                     </ul>
                     <br>
-                    <h6>Insecticidas y formas de combatir las plagas</h6>
-                    <ol>
-                      <li>Royas: Fungicidas sistémicos y protectores pueden ser utilizados para
-                        controlar las royas. Ejemplos de ingredientes activos incluyen triazoles,
-                        estrobilurinas y cuperatios. Rotación de cultivos para reducir la acumulación
-                        de patógenos en el suelo.</li>
-                      <li>Ácaros: Acaricidas específicos, como el azufre, pueden ser efectivos contra
-                        ácaros en cultivos de centeno. Uso de insecticidas botánicos, como aceites
-                        esenciales, puede ayudar a controlar las poblaciones de ácaros.</li>
-                      <li>Gorgojos del Grano: Insecticidas en polvo o aerosoles aprobados para el
-                        tratamiento de granos almacenados, como el fosfuro de aluminio. Mantener
-                        un ambiente de almacenamiento limpio y seco para prevenir la proliferación
-                        de gorgojos.</li>
-                      <li>Para Barrenadores de Tallo: Aplicación de insecticidas específicos para el
-                        control de larvas de insectos perforadores de tallo. Prácticas culturales como
-                        la eliminación de restos de cultivos y la destrucción de plantas infestadas.</li>
-                    </ol>
+                    <h6 class="pb-2">Insecticidas y formas de combatir las plagas</h6>
+                    <div class="d-flex flex-row small justify-content-evenly g-2 gap-2">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Royas</h5>
+                          <p class="card-text">
+                            Fungicidas sistémicos y protectores pueden ser utilizados para controlar las royas. Ejemplos de ingredientes activos incluyen triazoles, estrobilurinas y cuperatios. Rotación de cultivos para reducir la acumulación de patógenos en el suelo.
+                          </p>
+                          <a href="https://summit-agro.com/ar/es/producto/race-rm/?utm_source=google&utm_medium=cpc&utm_campaign=Trafico_GSEARCH_Productos&utm_content=Race+rm&gclid=EAIaIQobChMIx-HNlfmOggMV_dHCBB0pugrjEAAYAiAAEgL6gPD_BwE" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Ácaros</h5>
+                          <p class="card-text">
+                            Acaricidas específicos, como el azufre, pueden ser efectivos contra ácaros en cultivos de centeno. Uso de insecticidas botánicos, como aceites esenciales, puede ayudar a controlar las poblaciones de ácaros.
+                          </p>
+                          <a href="https://certisbelchim.es/insecticida-para-aranas-como-acabar-con-la-arana-roja/#:~:text=Nissorun%C2%AE%20y%20Cesar%C2%AE,a%20los%20principales%20%C3%A1caros%20tetran%C3%ADquidos." class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Gorgojos del Grano</h5>
+                          <p class="card-text">Insecticidas en polvo o aerosoles aprobados para el tratamiento de granos almacenados, como el fosfuro de aluminio. Mantener un ambiente de almacenamiento limpio y seco para prevenir la proliferación de gorgojos.</p>
+                          <a href="https://www.argentina.gob.ar/sites/default/files/anmat_listado_de_insecticidas_y_raticidas_actualizado_al_20-9-21.pdf" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Barrenadores de Tallo</h5>
+                          <p class="card-text">
+                            Aplicación de insecticidas específicos para el control de larvas de insectos perforadores de tallo. Prácticas culturales como la eliminación de restos de cultivos y la destrucción de plantas infestadas.
+                          </p>
+                          <a href="https://www.argentina.gob.ar/sites/default/files/anmat_listado_de_insecticidas_y_raticidas_actualizado_al_20-9-21.pdf" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
                   <div class="tab-pane fade" id="girasol-tab-pane" role="tabpanel" aria-labelledby="girasol-tab" tabindex="0">
                     <h5>Plagas Comunes en Cultivos de Girasol (Helianthus annuus)</h5>
                     <br>
-                    <h6>Plagas habitualmente asociadas</h6>
-                    <ol>
-                      <li>Mosca Blanca del Girasol (Trialeurodes vaporariorum): Los adultos y las
-                        ninfas de mosca blanca pueden alimentarse de la savia de las plantas de
-                        girasol, debilitándolas y causando decoloración de las hojas.</li>
-                      <li>Orugas Defoliadoras (Spodoptera spp.): Las orugas defoliadoras se
-                        alimentan de las hojas del girasol, lo que puede reducir la superficie foliar y
-                        afectar la fotosíntesis.</li>
-                      <li>Pulgones (Aphis spp.): Los pulgones pueden transmitir virus a las plantas
-                        de girasol y causar deformaciones en las hojas y flores.</li>
-                      <li>Escarabajos de la Flor (Meligethes spp.): Estos escarabajos se alimentan
-                        de las flores del girasol, lo que puede disminuir la formación de semillas.</li>
-                    </ol>
+                    <h6 class="pb-2">Plagas habitualmente asociadas</h6>
+                    <div class="row justify-content-evenly g-2 gap-2">
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/trialeurodes-vaporariorum" target="_blank">
+                        <img src="../../assets/images/plagas/mosca-blanca.PNG" class="card-img-top" alt="acaro-araña" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Mosca Blanca del Girasol (Trialeurodes vaporariorum)</b><br>
+                            Los adultos y las ninfas de mosca blanca pueden alimentarse de la savia de las plantas de girasol, debilitándolas y causando decoloración de las hojas.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/spodoptera-frugiperda" target="_blank">
+                        <img src="../../assets/images/plagas/oruga-defoliadoras.jpg" class="card-img-top" alt="royas-centeno" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Orugas Defoliadoras (Spodoptera spp.)</b><br>
+                            Las orugas defoliadoras se alimentan de las hojas del girasol, lo que puede reducir la superficie foliar y afectar la fotosíntesis.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/aphis-gossypii" target="_blank">
+                        <img src="../../assets/images/plagas/pulgones.png" class="card-img-top" alt="gorgojo-planta" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Pulgones (Aphis spp.)</b><br>
+                            Los pulgones pueden transmitir virus a las plantas de girasol y causar deformaciones en las hojas y flores.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://es.wikipedia.org/wiki/Brassicogethes_aeneus" target="_blank">
+                        <img src="../../assets/images/plagas/escarabajo.jpg" class="card-img-top" alt="barrendores-tallo" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Escarabajos de la Flor (Meligethes spp.)</b><br>
+                            Estos escarabajos se alimentan de las flores del girasol, lo que puede disminuir la formación de semillas.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
 
                     <br>
                     <h6>Impacto en el cultivo</h6>
@@ -256,108 +325,92 @@ $userId = $_SESSION['user_id'];
                       <li>Nivel de infestación de pulgones en los últimos 6 meses.</li>
                     </ul>
                     <br>
-                    <h6>Insecticidas y formas de combatir las plagas</h6>
-                    <ol>
-                      <li>Mosca Blanca del Girasol (Trialeurodes vaporariorum):Insecticidas sistémicos
-                        o translaminares, como neonicotinoides o insecticidas piretroides, pueden ser
-                        efectivos contra la mosca blanca. Uso de insecticidas naturales, como aceites
-                        de neem o jabón insecticida.</li>
-                      <li>Orugas Defoliadoras (Spodoptera spp.): Insecticidas específicos para orugas,
-                        como bacillus thuringiensis (Bt) o spinosad, pueden ser utilizados para
-                        controlar las poblaciones de orugas defoliadoras. Uso de insecticidas de
-                        amplio espectro en casos de infestaciones severas.</li>
-                      <li>Pulgones (Aphis spp.): Insecticidas sistémicos, como neonicotinoides, pueden
-                        controlar las poblaciones de pulgones. Fomentar la presencia de
-                        depredadores naturales, como mariquitas y crisopas, que se alimentan de
-                        pulgones.</li>
-                      <li>Escarabajos de la Flor (Meligethes spp.): Insecticidas piretroides o
-                        neonicotinoides pueden utilizarse para controlar los escarabajos de la flor.
-                        Uso de trampas de feromonas para monitorear y reducir las poblaciones de
-                        escarabajos.</li>
-                    </ol>
+                    <h6 class="pb-2">Insecticidas y formas de combatir las plagas</h6>
+                    <div class="d-flex flex-row small justify-content-evenly g-2 gap-2">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Mosca Blanca del Girasol (Trialeurodes vaporariorum)</h5>
+                          <p class="card-text">
+                            Insecticidas sistémicos o translaminares, como neonicotinoides o insecticidas piretroides, pueden ser efectivos contra la mosca blanca. Uso de insecticidas naturales, como aceites de neem o jabón insecticida.
+                          </p>
+                          <a href="http://www.fmcargentina.com.ar/?taxonomy=tipos_productos&term=insecticidas" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Orugas Defoliadoras (Spodoptera spp.)</h5>
+                          <p class="card-text">
+                            Insecticidas específicos para orugas, como bacillus thuringiensis (Bt) o spinosad, pueden ser utilizados para controlar las poblaciones de orugas defoliadoras. Uso de insecticidas de amplio espectro en casos de infestaciones severas.
+                          </p>
+                          <a href="https://listado.mercadolibre.com.ar/bacillus-thuringiensis-insecticida" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Pulgones (Aphis spp.)</h5>
+                          <p class="card-text">
+                            Insecticidas sistémicos, como neonicotinoides, pueden controlar las poblaciones de pulgones. Fomentar la presencia de depredadores naturales, como mariquitas y crisopas, que se alimentan de pulgones.
+                          </p>
+                          <a href="https://www.corteva.com.ar/productos-y-soluciones/proteccion-de-cultivos/transform.html" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Escarabajos de la Flor (Meligethes spp.)</h5>
+                          <p class="card-text">
+                          Insecticidas piretroides o neonicotinoides pueden utilizarse para controlar los escarabajos de la flor. Uso de trampas de feromonas para monitorear y reducir las poblaciones de escarabajos.
+                          </p>
+                          <a href="https://www.syngenta.com.ar/product/crop-protection/insecticida/actara" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="tab-pane fade" id="maiz-tab-pane" role="tabpanel" aria-labelledby="maiz-tab" tabindex="0">
-                    <h5>Plagas Comunes en Cultivos del Maíz (Zea mays)</h5>
-                    <br>
-                    <h6>Plagas habitualmente asociadas</h6>
-                    <ol>
-                      <li>Gusano Cogollero (Spodoptera frugiperda): Las larvas del gusano
-                        cogollero se alimentan de las hojas y tallos jóvenes del maíz, lo que puede
-                        causar daños significativos a las plantas.</li>
-                      <li>Pulgones del Maíz (Rhopalosiphum maidis): Los pulgones del maíz
-                        pueden causar daño al succionar la savia de las plantas, debilitándolas y
-                        transmitiendo enfermedades.</li>
-                      <li>Escarabajo del Maíz (Diabrotica spp.): Los escarabajos del maíz se
-                        alimentan de las hojas y flores del maíz, lo que puede reducir la capacidad de
-                        la planta para fotosintetizar y producir granos.</li>
-                      <li>Gorgojo del Maíz (Sitophilus zeamais): Los gorgojos del maíz pueden
-                        dañar los granos almacenados, disminuyendo la calidad y valor del producto.</li>
-                    </ol>
 
-                    <br>
-                    <h6>Impacto en el cultivo</h6>
-                    <ul>
-                      <li>Reducción del rendimiento y calidad del maíz.</li>
-                      <li>Daño a hojas, tallos y flores, afectando el desarrollo normal de la planta.</li>
-                      <li>Riesgo de pérdida económica para los agricultores.</li>
-                    </ul>
-                    <br>
-                    <h6>Medidas de control y prevención</h6>
-                    <ul>
-                      <li>Monitoreo constante de las plantas para detectar signos tempranos de
-                        infestación.</li>
-                      <li>Aplicación de insecticidas específicos para cada plaga según las
-                        recomendaciones de un experto.</li>
-                      <li>Uso de métodos de control biológico, como el uso de enemigos naturales.</li>
-                      <li>Uso de prácticas agronómicas, como la rotación de cultivos, para prevenir la
-                        acumulación de plagas.</li>
-                    </ul>
-                    <br>
-                    <h6>Datos Relevantes</h6>
-                    <ul>
-                      <li>Porcentaje promedio de pérdida de rendimiento debido a plagas.</li>
-                      <li>Nivel de infestación de gusano cogollero en los últimos 6 meses.</li>
-                    </ul>
-                    <br>
-                    <h6>Insecticidas y formas de combatir las plagas</h6>
-                    <ol>
-                      <li>Gusano Cogollero (Spodoptera frugiperda): Insecticidas específicos para
-                        orugas, como los que contienen ingredientes activos como spinosad o
-                        emamectina, pueden ser efectivos contra el gusano cogollero. Uso de
-                        insecticidas biológicos a base de Bacillus thuringiensis (Bt) para un control
-                        más selectivo.</li>
-                      <li>Pulgones del Maíz (Rhopalosiphum maidis): Insecticidas sistémicos o de
-                        contacto, como neonicotinoides o piretroides, pueden ser utilizados para
-                        controlar las poblaciones de pulgones. Fomentar la presencia de
-                        depredadores naturales, como coccinélidos y avispas parasitoides.</li>
-                      <li>Escarabajo del Maíz (Diabrotica spp.): Insecticidas piretroides o
-                        neonicotinoides pueden ser efectivos para controlar los escarabajos del maíz.
-                        Uso de trampas con feromonas para monitorear y reducir las poblaciones de
-                        escarabajos.</li>
-                      <li>Gorgojo del Maíz (Sitophilus zeamais): Tratamientos con insecticidas
-                        fumigantes, como el fosfuro de aluminio, pueden utilizarse para controlar los
-                        gorgojos del maíz en granos almacenados. Mantener un ambiente de
-                        almacenamiento limpio y seco para prevenir la proliferación de plagas.</li>
-                    </ol>
-                  </div>
                   <div class="tab-pane fade" id="mijo-tab-pane" role="tabpanel" aria-labelledby="mijo-tab" tabindex="0">
                     <h5>Plagas Comunes en Cultivos del Mijo (Pennisetum spp.)</h5>
                     <br>
-                    <h6>Plagas habitualmente asociadas</h6>
-                    <ol>
-                      <li>Gorgojo del Mijo (Sitophilus oryzae): Los gorgojos del mijo pueden dañar
-                        los granos almacenados, disminuyendo su calidad y valor.</li>
-                      <li>Pulgones del Mijo (Rhopalosiphum spp.): Los pulgones del mijo pueden
-                        succionar la savia de las plantas y transmitir enfermedades, debilitando el
-                        cultivo.</li>
-                      <li>Gusano de Alambre (Agriotes spp.): Las larvas de gusano de alambre
-                        pueden dañar las raíces y plántulas de mijo, afectando el crecimiento.</li>
-                      <li>Escarabajos de la Paja (Trogoderma spp.): Los escarabajos de la paja
-                        pueden infestar los granos almacenados de mijo y otros productos.</li>
-                    </ol>
+                    <h6 class="pb-2">Plagas habitualmente asociadas</h6>
+                    <div class="row justify-content-evenly g-2 gap-2">
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/sitophilus-oryzae" target="_blank">
+                        <img src="../../assets/images/plagas/gorgojo-mijo.jpg" class="card-img-top" alt="acaro-araña" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Gorgojo del Mijo (Sitophilus oryzae)</b><br>
+                            Los gorgojos del mijo pueden dañar los granos almacenados, disminuyendo su calidad y valor.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/rhopalosiphum-maidis" target="_blank">
+                        <img src="../../assets/images/plagas/pulgon-mijo.jpg" class="card-img-top" alt="royas-centeno" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Pulgones del Mijo (Rhopalosiphum spp.)</b><br>
+                            Los pulgones del mijo pueden succionar la savia de las plantas y transmitir enfermedades, debilitando el cultivo.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/agriotes-lineatus" target="_blank">
+                        <img src="../../assets/images/plagas/gusano-alambre.jpg" class="card-img-top" alt="gorgojo-planta" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Gusano de Alambre (Agriotes spp.)</b><br>
+                            Las larvas de gusano de alambre pueden dañar las raíces y plántulas de mijo, afectando el crecimiento.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/trogoderma-granarium" target="_blank">
+                        <img src="../../assets/images/plagas/escarabajo-paja.PNG" class="card-img-top" alt="barrendores-tallo" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Escarabajos de la Paja (Trogoderma spp.)</b><br>
+                            Los escarabajos de la paja pueden infestar los granos almacenados de mijo y otros productos.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
 
                     <br>
-                    <h6>Impacto en el cultivo</h6>
+                    <h6 >Impacto en el cultivo</h6>
                     <ul>
                       <li>Pérdida de calidad y cantidad en la cosecha de mijo.</li>
                       <li>Debilitamiento de las plantas, afectando el rendimiento.</li>
@@ -372,7 +425,7 @@ $userId = $_SESSION['user_id'];
                       reducir el refugio de plagas.</li>
                       <li>Uso de insecticidas específicos o selectivos bajo recomendación de un
                       experto en control de plagas.</li>
-                    </ul>
+                    </ol>
                     <br>
                     <h6>Datos Relevantes</h6>
                     <ul>
@@ -380,42 +433,87 @@ $userId = $_SESSION['user_id'];
                       <li>Nivel de infestación de gorgojo del mijo en los últimos 6 meses.</li>
                     </ul>
                     <br>
-                    <h6>Insecticidas y formas de combatir las plagas</h6>
-                    <ol>
-                      <li>Gorgojo del Mijo (Sitophilus oryzae): Insecticidas fumigantes como el fosfuro
-                        de aluminio pueden ser utilizados para controlar los gorgojos en los granos
-                        almacenados. Mantener condiciones adecuadas de almacenamiento para
-                        prevenir la proliferación de plagas.</li>
-                      <li>Pulgones del Mijo (Rhopalosiphum spp.): Insecticidas sistémicos o de
-                        contacto, como neonicotinoides o piretroides, pueden ser efectivos para
-                        controlar las poblaciones de pulgones. Fomentar la presencia de
-                        depredadores naturales, como mariquitas y avispas parasitoides.</li>
-                      <li>Gusano de Alambre (Agriotes spp.): Aplicación de insecticidas de suelo antes
-                        de la siembra puede ayudar a controlar las larvas de gusano de alambre. Uso
-                        de métodos de manejo cultural, como la rotación de cultivos, para reducir la
-                        presencia de larvas en el suelo.</li>
-                      <li>Escarabajos de la Paja (Trogoderma spp.): Medidas de manejo integrado de
-                        plagas, como la higiene y limpieza en áreas de almacenamiento, pueden
-                        ayudar a prevenir la infestación de escarabajos de la paja.</li>
-                    </ol>
+                    <h6 class="pb-2">Insecticidas y formas de combatir las plagas</h6>
+                    <div class="d-flex flex-row small justify-content-evenly g-2 gap-2">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Gorgojo del Mijo (Sitophilus oryzae)</h5>
+                          <p class="card-text">
+                          Insecticidas fumigantes como el fosfuro de aluminio pueden ser utilizados para controlar los gorgojos en los granos almacenados. Mantener condiciones adecuadas de almacenamiento para prevenir la proliferación de plagas.
+                          </p>
+                          <a href="https://dapquim.com.ar/producto/phostoxin-fosfuro-de-aluminio" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Pulgones del Mijo (Rhopalosiphum spp.)</h5>
+                          <p class="card-text">
+                          Insecticidas sistémicos o de contacto, como neonicotinoides o piretroides, pueden ser efectivos para controlar las poblaciones de pulgones. Fomentar la presencia de depredadores naturales, como mariquitas y avispas parasitoides.
+                          </p>
+                          <a href="https://www.corteva.com.ar/productos-y-soluciones/proteccion-de-cultivos/transform.html" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Gusano de Alambre (Agriotes spp.)</h5>
+                          <p class="card-text">
+                          Aplicación de insecticidas de suelo antes de la siembra puede ayudar a controlar las larvas de gusano de alambre. Uso de métodos de manejo cultural, como la rotación de cultivos, para reducir la presencia de larvas en el suelo.
+                          </p>
+                          <a href="https://ar.helmcrop.com/proteccion-de-cultivos/productos/inseticidas/unikum" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Escarabajos de la Paja (Trogoderma spp.)</h5>
+                          <p class="card-text">
+                          Medidas de manejo integrado de plagas, como la higiene y limpieza en áreas de almacenamiento, pueden ayudar a prevenir la infestación de escarabajos de la paja.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="soja-tab-pane" role="tabpanel" aria-labelledby="soja-tab" tabindex="0">
                     <h5>Plagas Comunes en Cultivos de la Soja (Glycine max)</h5>
                     <br>
-                    <h6>Plagas habitualmente asociadas</h6>
-                    <ol>
-                      <li>Gusano de la Soja (Anticarsia gemmatalis): Las larvas de este gusano se
-                        alimentan de las hojas de la soja, lo que puede causar defoliación y dañar el
-                        cultivo.</li>
-                      <li>Pulgones de la Soja (Aphis glycines): Los pulgones de la soja pueden
-                        succionar la savia de las plantas, debilitándolas y transmitiendo
-                        enfermedades.</li>
-                      <li>Escarabajos Desfoliadores (Diabrotica spp.): Los escarabajos
-                        desfoliadores se alimentan de las hojas de la soja, lo que puede afectar la
-                        fotosíntesis y la producción de granos.</li>
-                      <li>Cigarras de la Soja (Empoasca spp.): Las cigarras de la soja se alimentan
-                        de la savia de las plantas, causando daño y transmitiendo enfermedades.</li>
-                    </ol>
+                    <h6 class="pb-2">Plagas habitualmente asociadas</h6>
+                    <div class="row justify-content-evenly g-2 gap-2">
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://es.wikipedia.org/wiki/Anticarsia_gemmatalis" target="_blank">
+                        <img src="../../assets/images/plagas/gusano-soja.jpg" class="card-img-top" alt="acaro-araña" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Gusano de la Soja (Anticarsia gemmatalis)</b><br>
+                            Las larvas de este gusano se alimentan de las hojas de la soja, lo que puede causar defoliación y dañar el cultivo.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://es.wikipedia.org/wiki/Aphis_glycines" target="_blank">
+                        <img src="../../assets/images/plagas/pulgones-soja.jpg" class="card-img-top" alt="royas-centeno" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Pulgones de la Soja (Aphis glycines)</b><br>
+                            Los pulgones de la soja pueden succionar la savia de las plantas, debilitándolas y transmitiendo enfermedades.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://www.sinavimo.gob.ar/plaga/diabrotica-speciosa" target="_blank">
+                        <img src="../../assets/images/plagas/escarabajo-soja.PNG" class="card-img-top" alt="gorgojo-planta" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Escarabajos Desfoliadores (Diabrotica spp.)</b><br>
+                            Los escarabajos desfoliadores se alimentan de las hojas de la soja, lo que puede afectar la fotosíntesis y la producción de granos.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="card p-0" style="width: 18rem;text-decoration: none;" href="https://es.wikipedia.org/wiki/Empoasca" target="_blank">
+                        <img src="../../assets/images/plagas/cigarra.PNG" class="card-img-top" alt="barrendores-tallo" style="height: 220px;">
+                        <div class="card-body">
+                          <p class="card-text small">
+                            <b>Cigarras de la Soja (Empoasca spp.)</b><br>
+                            Las cigarras de la soja se alimentan de la savia de las plantas, causando daño y transmitiendo enfermedades.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
 
                     <br>
                     <h6>Impacto en el cultivo</h6>
@@ -439,26 +537,45 @@ $userId = $_SESSION['user_id'];
                       <li>Nivel de infestación de gusano de la soja en los últimos 6 meses.</li>
                     </ul>
                     <br>
-                    <h6>Insecticidas y formas de combatir las plagas</h6>
-                    <ol>
-                      <li>Gusano de la Soja (Anticarsia gemmatalis): Insecticidas específicos para
-                        orugas, como los que contienen ingredientes activos como spinosad o
-                        emamectina, pueden ser efectivos contra el gusano de la soja. Uso de
-                        insecticidas biológicos a base de Bacillus thuringiensis (Bt) para un control
-                        más selectivo.</li>
-                      <li>Pulgones de la Soja (Aphis glycines): Insecticidas sistémicos o de contacto,
-                        como neonicotinoides o piretroides, pueden ser utilizados para controlar las
-                        poblaciones de pulgones. Fomentar la presencia de depredadores naturales,
-                        como mariquitas y avispas parasitoides.</li>
-                      <li>Escarabajos Desfoliadores (Diabrotica spp.): Insecticidas piretroides o
-                        neonicotinoides pueden ser efectivos para controlar los escarabajos
-                        desfoliadores. Uso de trampas con feromonas para monitorear y reducir las
-                        poblaciones de escarabajos.</li>
-                      <li>Cigarras de la Soja (Empoasca spp.): Insecticidas sistémicos pueden ser
-                        utilizados para controlar las poblaciones de cigarras de la soja. Fomentar la
-                        presencia de enemigos naturales, como avispas parasitoides, para un control
-                        biológico.</li>
-                    </ol>
+                    <h6 class="pb-2">Insecticidas y formas de combatir las plagas</h6>
+                    <div class="d-flex flex-row small justify-content-evenly g-2 gap-2">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Gusano de la Soja (Anticarsia gemmatalis)</h5>
+                          <p class="card-text">
+                          Insecticidas específicos para orugas, como los que contienen ingredientes activos como spinosad o emamectina, pueden ser efectivos contra el gusano de la soja. Uso de insecticidas biológicos a base de Bacillus thuringiensis (Bt) para un control más selectivo.
+                          </p>
+                          <a href="https://www.syngenta.com.ar/product/crop-protection/insecticida/landing-control-orugas-ampligo?gclid=EAIaIQobChMI8Oq9kLiPggMVFy7UAR1xkQTIEAAYAiAAEgIPx_D_BwE" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Pulgones de la Soja (Aphis glycines)</h5>
+                          <p class="card-text">
+                          Insecticidas sistémicos o de contacto, como neonicotinoides o piretroides, pueden ser utilizados para controlar las poblaciones de pulgones. Fomentar la presencia de depredadores naturales, como mariquitas y avispas parasitoides.
+                          </p>
+                          <a href="http://www.fmcargentina.com.ar/?taxonomy=tipos_productos&term=insecticidas" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Escarabajos Desfoliadores (Diabrotica spp.)</h5>
+                          <p class="card-text">
+                          Insecticidas piretroides o neonicotinoides pueden ser efectivos para controlar los escarabajos desfoliadores. Uso de trampas con feromonas para monitorear y reducir las poblaciones de escarabajos.
+                          </p>
+                          <a href="https://www.syngenta.com.ar/product/crop-protection/insecticida/actara" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Cigarras de la Soja (Empoasca spp.)</h5>
+                          <p class="card-text">
+                          Insecticidas sistémicos pueden ser utilizados para controlar las poblaciones de cigarras de la soja. Fomentar la presencia de enemigos naturales, como avispas parasitoides, para un control biológico.
+                          </p>
+                          <a href="https://www.gardentech.com/es/insects/cicadas" class="btn btn-secondary text-light" target="_blank">Buscar</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
