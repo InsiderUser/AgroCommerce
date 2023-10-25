@@ -10,8 +10,10 @@ app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud e
 // Configura la ruta para enviar correos
 app.post("/sendEmail", async (req, res) => {
   const correo = req.body.correo; // Aquí obtendrías el correo desde la solicitud en formato JSON
+  const usernameIdentifier = req.body.usernameIdentifier; // Aquí obtendrías el correo desde la solicitud en formato JSON
+  const cropClass = req.body.cropClass; // Aquí obtendrías el correo desde la solicitud en formato JSON
   try {
-    await apiMailer.enviarMail(correo); // Llama a la función de envío de correos
+    await apiMailer.enviarMail(correo, usernameIdentifier, cropClass); // Llama a la función de envío de correos
     res.status(200).send("Correo enviado exitosamente");
   } catch (error) {
     console.error("Error al enviar el correo:", error);

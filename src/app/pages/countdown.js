@@ -1,11 +1,14 @@
 let startLoop = () => {
   // Obtiene elementos del DOM
-  let timerOne, correo;
+  let timerOne, correo, usernameIdentifier, cropClass;
   if (document.getElementById("intervalPrinted1")) {
     timerOne = parseInt(
       document.getElementById("intervalPrinted1").textContent
     );
     correo = document.getElementById("correoPrinted1").textContent;
+    usernameIdentifier =
+      document.getElementById("usernameIdentifier").textContent;
+    cropClass = document.getElementById("cropClass").textContent;
   } else {
     console.log("No existe 1");
   }
@@ -26,7 +29,7 @@ let startLoop = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ correo }),
+          body: JSON.stringify({ correo, usernameIdentifier, cropClass }),
         })
           .then((response) => {
             if (response.ok) {
