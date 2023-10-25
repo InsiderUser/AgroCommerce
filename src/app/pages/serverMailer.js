@@ -5,12 +5,13 @@ const apiMailer = require("./apiMailer.js"); // Importa la lógica de envío de 
 
 // Habilita CORS para permitir solicitudes desde cualquier origen
 app.use(cors());
+app.use(express.json()); // Middleware para analizar el cuerpo de la solicitud en JSON
 
 // Configura la ruta para enviar correos
 app.post("/sendEmail", async (req, res) => {
-  // const correo = req.body.correo; // Aquí obtendrías el correo desde la solicitud
+  const correo = req.body.correo; // Aquí obtendrías el correo desde la solicitud en formato JSON
   try {
-    await apiMailer.enviarMail(); // Llama a la función de envío de correos
+    await apiMailer.enviarMail(correo); // Llama a la función de envío de correos
     res.status(200).send("Correo enviado exitosamente");
   } catch (error) {
     console.error("Error al enviar el correo:", error);
@@ -30,8 +31,3 @@ process.on("SIGINT", () => {
     process.exit(0);
   });
 });
-
-/* 
-1. En '\Agrocommerce\src\app\pages' correr 'node serverMailer.js'
-
-*/

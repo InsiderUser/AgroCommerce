@@ -1,6 +1,6 @@
 const nodeMailer = require("nodemailer");
 
-enviarMail = async () => {
+enviarMail = async (correo) => {
   const config = {
     host: "smtp.gmail.com",
     port: 465,
@@ -14,8 +14,8 @@ enviarMail = async () => {
 
   const mensaje = {
     from: '"AgroCommerce" <agrocommercele@gmail.com>', // sender address
-    // to: `${correo}`, // list of receivers
-    to: `gonzaruizok@gmail.com`,
+    to: correo, // list of receivers
+    // to: `gonzaruizok@gmail.com`,
     subject: "Notificacion de riego", // Subject line
     text: "Esto es una notifiacion automatizada", // plain text body
     html: "Se le notifica que <b>en breve comenzará</b>, segun el intervalo que ha establecido en nuestra plataforma.", // html body

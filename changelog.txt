@@ -10,3 +10,8 @@ PRIMEROS PASOS:
 2. Ejecutar el comando: "npm install". 
    Esto intalará las dependencias de bootstrap y sass necesarias.
 3. Para compilar sass ejecutar el comando: "npm run compile:sass"
+
+---------------------------------------------------------------
+Para poder correr el servidor de envio de mails:
+
+1. En '\Agrocommerce\src\app\pages' correr 'node serverMailer.js'

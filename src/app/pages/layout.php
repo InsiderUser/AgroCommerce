@@ -322,6 +322,7 @@
     <script>
       let btnStatus = document.getElementById('btnRiego');
       btnStatus.addEventListener("click", function() {
+        console.log(`Conteo iniciado`);
         startLoop();
         
     });
