@@ -135,7 +135,8 @@
                   El pH se mide en una escala en dos direcciones: de 0 a 7 se describe una cualidad ácida, el nivel medio (7) indica un suelo neutro, y un valor superior a 7 describe suelos de calidad alcalinas. Cada variedad de cultivo tiene sus propios requisitos en lo que respecta al pH, al nivel hídrico y a los nutrientes de la tierra, entre otros factores a considerar.<br>
                   <b>Pero, ¿cómo medimos el pH del suelo?</b><br>
                   Lo cierto es que, en la mayoría de los casos, los grandes cultivos requieren de mediciones específicas, técnicas y profesionales, por lo que se solicitan análisis de acidez/alcalinidad en laboratorios de suelos. Pero este es un proceso que conlleva cierto costo, así que si necesitas hacer una medición de pH puedes aplicar técnicas menos costosas.
-                </p>
+                </p><br>
+                <img src="../../assets/images/phTable.jpeg" alt="Tabla de ph del suelo">
               </div>
             </div>
           </div>
