@@ -32,8 +32,6 @@ process.on("SIGINT", () => {
 });
 
 /* 
-1. Settear set-executionPolicy en remoteSigned desde PWA
-2. Correr node serverMailer.js
-
+1. En '\Agrocommerce\src\app\pages' correr 'node serverMailer.js'
 
 */

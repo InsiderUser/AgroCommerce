@@ -311,7 +311,6 @@
       </div>      
     </div>
     <script src="./api.js"></script>
-    <!-- <script src="apiMailer.js"></script> -->
     <script src="countdown.js"></script>
     
 
@@ -322,10 +321,9 @@
 
     <script>
       let btnStatus = document.getElementById('btnRiego');
-
       btnStatus.addEventListener("click", function() {
         startLoop();
-        // alert(`Boton encontrado`);
+        
     });
 
     </script>

@@ -13,18 +13,18 @@ enviarMail = async () => {
   };
 
   const mensaje = {
-    from: '"Fred Foo 👻" <agrocommercele@gmail.com>', // sender address
+    from: '"AgroCommerce" <agrocommercele@gmail.com>', // sender address
     // to: `${correo}`, // list of receivers
     to: `gonzaruizok@gmail.com`,
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>buenaaas, estoy checkeando la api de envio de mails jajja buen finde chikis</b>", // html body
+    subject: "Notificacion de riego", // Subject line
+    text: "Esto es una notifiacion automatizada", // plain text body
+    html: "Se le notifica que <b>en breve comenzará</b>, segun el intervalo que ha establecido en nuestra plataforma.", // html body
   };
 
   const transporter = nodeMailer.createTransport(config);
   const info = await transporter.sendMail(mensaje);
 };
-enviarMail();
+// enviarMail(); Evita el envio automatico al correr el servidor
 
 module.exports = {
   enviarMail,
